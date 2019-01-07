@@ -36,24 +36,29 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
 			this.tab1 = this.Factory.CreateRibbonTab();
-			this.group1 = this.Factory.CreateRibbonGroup();
+			this.grpPDF = this.Factory.CreateRibbonGroup();
 			this.btnSavePDF = this.Factory.CreateRibbonButton();
+			this.grpImg = this.Factory.CreateRibbonGroup();
+			this.bntAddImage = this.Factory.CreateRibbonButton();
+			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
 			this.tab1.SuspendLayout();
-			this.group1.SuspendLayout();
+			this.grpPDF.SuspendLayout();
+			this.grpImg.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab1
 			// 
 			this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-			this.tab1.Groups.Add(this.group1);
+			this.tab1.Groups.Add(this.grpPDF);
+			this.tab1.Groups.Add(this.grpImg);
 			this.tab1.Label = "ExercNetLex";
 			this.tab1.Name = "tab1";
 			// 
-			// group1
+			// grpPDF
 			// 
-			this.group1.Items.Add(this.btnSavePDF);
-			this.group1.Label = "PDF";
-			this.group1.Name = "group1";
+			this.grpPDF.Items.Add(this.btnSavePDF);
+			this.grpPDF.Label = "PDF";
+			this.grpPDF.Name = "grpPDF";
 			// 
 			// btnSavePDF
 			// 
@@ -64,6 +69,25 @@
 			this.btnSavePDF.ShowImage = true;
 			this.btnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnSavePDF_Click);
 			// 
+			// grpImg
+			// 
+			this.grpImg.Items.Add(this.bntAddImage);
+			this.grpImg.Label = "Imagem";
+			this.grpImg.Name = "grpImg";
+			// 
+			// bntAddImage
+			// 
+			this.bntAddImage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.bntAddImage.Image = ((System.Drawing.Image)(resources.GetObject("bntAddImage.Image")));
+			this.bntAddImage.Label = "Add Image";
+			this.bntAddImage.Name = "bntAddImage";
+			this.bntAddImage.ShowImage = true;
+			this.bntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.bntAddImage_Click);
+			// 
+			// dlgImg
+			// 
+			this.dlgImg.FileName = "dlgImg";
+			// 
 			// Ribbon1
 			// 
 			this.Name = "Ribbon1";
@@ -72,8 +96,10 @@
 			this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
 			this.tab1.ResumeLayout(false);
 			this.tab1.PerformLayout();
-			this.group1.ResumeLayout(false);
-			this.group1.PerformLayout();
+			this.grpPDF.ResumeLayout(false);
+			this.grpPDF.PerformLayout();
+			this.grpImg.ResumeLayout(false);
+			this.grpImg.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -81,8 +107,11 @@
 		#endregion
 
 		internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-		internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpPDF;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton btnSavePDF;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpImg;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton bntAddImage;
+		private System.Windows.Forms.OpenFileDialog dlgImg;
 	}
 
 	partial class ThisRibbonCollection

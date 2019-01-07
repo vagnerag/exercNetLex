@@ -22,8 +22,18 @@ namespace exercNetLex
 			Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
 			string nomeDocument = doc.Name;
 			string enderecoDoc = doc.Path;
-			string enderecoPDF = enderecoDoc + "\\" + nomeDocument + ".pdf";
+			string enderecoPDF = enderecoDoc + "\\" + nomeDocument+ ".pdf";
 			doc.ExportAsFixedFormat(enderecoPDF, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
+		}
+
+		private void bntAddImage_Click(object sender, RibbonControlEventArgs e)
+		{
+			dlgImg.InitialDirectory = @"C:\Users\Netlex\Desktop\exercNetLex\";
+			dlgImg.Title = "Escolha a Imagem";
+			dlgImg.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
+			dlgImg.ShowDialog();
+			string enderecoImg = dlgImg.FileName;
+			Globals.ThisAddIn.Application.Selection.InlineShapes.AddPicture(enderecoImg);
 		}
 	}
 }
