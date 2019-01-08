@@ -41,9 +41,12 @@
 			this.grpImg = this.Factory.CreateRibbonGroup();
 			this.bntAddImage = this.Factory.CreateRibbonButton();
 			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
+			this.grpTabela = this.Factory.CreateRibbonGroup();
+			this.bntAddTabela = this.Factory.CreateRibbonButton();
 			this.tab1.SuspendLayout();
 			this.grpPDF.SuspendLayout();
 			this.grpImg.SuspendLayout();
+			this.grpTabela.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab1
@@ -51,6 +54,7 @@
 			this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
 			this.tab1.Groups.Add(this.grpPDF);
 			this.tab1.Groups.Add(this.grpImg);
+			this.tab1.Groups.Add(this.grpTabela);
 			this.tab1.Label = "ExercNetLex";
 			this.tab1.Name = "tab1";
 			// 
@@ -72,7 +76,7 @@
 			// grpImg
 			// 
 			this.grpImg.Items.Add(this.bntAddImage);
-			this.grpImg.Label = "Imagem";
+			this.grpImg.Label = "Imagens";
 			this.grpImg.Name = "grpImg";
 			// 
 			// bntAddImage
@@ -88,6 +92,21 @@
 			// 
 			this.dlgImg.FileName = "dlgImg";
 			// 
+			// grpTabela
+			// 
+			this.grpTabela.Items.Add(this.bntAddTabela);
+			this.grpTabela.Label = "Tabelas";
+			this.grpTabela.Name = "grpTabela";
+			// 
+			// bntAddTabela
+			// 
+			this.bntAddTabela.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.bntAddTabela.Image = ((System.Drawing.Image)(resources.GetObject("bntAddTabela.Image")));
+			this.bntAddTabela.Label = "Add Table";
+			this.bntAddTabela.Name = "bntAddTabela";
+			this.bntAddTabela.ShowImage = true;
+			this.bntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.bntAddTabela_Click);
+			// 
 			// Ribbon1
 			// 
 			this.Name = "Ribbon1";
@@ -100,6 +119,8 @@
 			this.grpPDF.PerformLayout();
 			this.grpImg.ResumeLayout(false);
 			this.grpImg.PerformLayout();
+			this.grpTabela.ResumeLayout(false);
+			this.grpTabela.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -112,6 +133,8 @@
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpImg;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton bntAddImage;
 		private System.Windows.Forms.OpenFileDialog dlgImg;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpTabela;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton bntAddTabela;
 	}
 
 	partial class ThisRibbonCollection

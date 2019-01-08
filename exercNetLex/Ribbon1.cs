@@ -35,5 +35,11 @@ namespace exercNetLex
 			string enderecoImg = dlgImg.FileName;
 			Globals.ThisAddIn.Application.Selection.InlineShapes.AddPicture(enderecoImg);
 		}
+
+		private void bntAddTabela_Click(object sender, RibbonControlEventArgs e)
+		{
+			frmTableConfig ftc = new frmTableConfig();
+			ftc.Show();
+		}
 	}
 }

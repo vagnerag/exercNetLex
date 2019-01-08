@@ -171,6 +171,10 @@
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TableConfig.resx">
+      <DependentUpon>TableConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="exercNetLex_1_TemporaryKey.pfx" />
     <None Include="exercNetLex_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -185,6 +189,12 @@
     </Compile>
     <Compile Include="Ribbon1.Designer.cs">
       <DependentUpon>Ribbon1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableConfig.Designer.cs">
+      <DependentUpon>TableConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
@@ -205,10 +215,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>exercNetLex_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>exercNetLex_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CD0878DAED9E9D32DE703FF4E09C4F99411D9B07</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>7388202951CFB16BD4964ACD5B276BE2BFD58EE6</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
