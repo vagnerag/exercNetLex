@@ -32,11 +32,12 @@ namespace exercNetLex
 			rng.Font.Name = "Calibri";
 			rng.Font.Size = 11;
 			rng.InsertParagraphAfter();
+			rng.InsertParagraphAfter();
 			rng.SetRange(rng.End, rng.End);
 
 			// Add a tabela
-			rng.Tables.Add(document.Paragraphs[1].Range, numLinhas, numColunas);
-
+			rng.Tables.Add(document.Paragraphs[rng.Start].Range, numLinhas, numColunas);
+			rng.SetRange(numLinhas+1, numLinhas + 1);
 
 			// Formata e coloca borda na tabela 
 			Word.Table tbl = document.Tables[1];
