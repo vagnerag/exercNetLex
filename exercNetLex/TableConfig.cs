@@ -10,20 +10,23 @@ using System.Windows.Forms;
 
 namespace exercNetLex
 {
-	public partial class frmTableConfig : Form
+	public partial class FrmTableConfig : Form
 	{
-		public frmTableConfig()
+		public FrmTableConfig()
 		{
 			InitializeComponent();
 		}
 
-		private void bntAddTableOK_Click(object sender, EventArgs e)
+		private void BntAddTableOK_Click(object sender, EventArgs e)
 		{
-			int numLinhas = (int)nudNumLinhas.Value;
-			int numColunas = (int)nudNumColunas.Value;
+			//Seta as variáveis INT com os valores inseridos na tela de configuração da tabela
+			int numLinhas = (int)NudNumLinhas.Value;
+			int numColunas = (int)NudNumColunas.Value;
 
+			//Fecha a tela de configuração após extrair os valores digitados
 			ActiveForm.Close();
 
+			//Chama a função de criar tabela passando os valores extraidos
 			ThisAddIn.CriarTabela(numLinhas, numColunas);
 			
 		}

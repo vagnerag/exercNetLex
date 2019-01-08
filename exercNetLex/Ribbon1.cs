@@ -17,28 +17,37 @@ namespace exercNetLex
 
 		}
 
-		private void btnSavePDF_Click(object sender, RibbonControlEventArgs e)
+		private void BtnSavePDF_Click(object sender, RibbonControlEventArgs e)
 		{
+			//Extrai as informções do documento ativo
 			Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
 			string nomeDocument = doc.Name;
 			string enderecoDoc = doc.Path;
+
+			//Cria uma string para armazenar o endereço onde o arquivo PDF será salvo e chama a função para converter
 			string enderecoPDF = enderecoDoc + "\\" + nomeDocument+ ".pdf";
 			doc.ExportAsFixedFormat(enderecoPDF, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
 		}
 
-		private void bntAddImage_Click(object sender, RibbonControlEventArgs e)
+		private void BntAddImage_Click(object sender, RibbonControlEventArgs e)
 		{
+			//Configuração do openDialog
 			dlgImg.InitialDirectory = @"C:\Users\Netlex\Desktop\exercNetLex\";
 			dlgImg.Title = "Escolha a Imagem";
 			dlgImg.Filter = "Image Files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
+
+			//Mostra o openDialog e seta a stringo com o nome da imagem
 			dlgImg.ShowDialog();
-			string enderecoImg = dlgImg.FileName;
-			Globals.ThisAddIn.Application.Selection.InlineShapes.AddPicture(enderecoImg);
+			string nomeImg = dlgImg.FileName;
+
+			//Add a imagem no documento
+			Globals.ThisAddIn.Application.Selection.InlineShapes.AddPicture(nomeImg);
 		}
 
-		private void bntAddTabela_Click(object sender, RibbonControlEventArgs e)
+		private void BntAddTabela_Click(object sender, RibbonControlEventArgs e)
 		{
-			frmTableConfig ftc = new frmTableConfig();
+			//Mostra a tela de configuração da tabela
+			FrmTableConfig ftc = new FrmTableConfig();
 			ftc.Show();
 		}
 	}

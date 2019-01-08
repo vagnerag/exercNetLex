@@ -175,6 +175,7 @@
       <DependentUpon>TableConfig.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="exercNetLex_1_TemporaryKey.pfx" />
+    <None Include="exercNetLex_2_TemporaryKey.pfx" />
     <None Include="exercNetLex_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -215,10 +216,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>exercNetLex_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>exercNetLex_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7388202951CFB16BD4964ACD5B276BE2BFD58EE6</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>54E100211FED557DC5888A244C8DA4044184180A</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -40,9 +40,9 @@
 			this.btnSavePDF = this.Factory.CreateRibbonButton();
 			this.grpImg = this.Factory.CreateRibbonGroup();
 			this.bntAddImage = this.Factory.CreateRibbonButton();
-			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
 			this.grpTabela = this.Factory.CreateRibbonGroup();
 			this.bntAddTabela = this.Factory.CreateRibbonButton();
+			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
 			this.tab1.SuspendLayout();
 			this.grpPDF.SuspendLayout();
 			this.grpImg.SuspendLayout();
@@ -71,7 +71,7 @@
 			this.btnSavePDF.Label = "Salvar em PDF";
 			this.btnSavePDF.Name = "btnSavePDF";
 			this.btnSavePDF.ShowImage = true;
-			this.btnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnSavePDF_Click);
+			this.btnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BtnSavePDF_Click);
 			// 
 			// grpImg
 			// 
@@ -86,11 +86,7 @@
 			this.bntAddImage.Label = "Add Image";
 			this.bntAddImage.Name = "bntAddImage";
 			this.bntAddImage.ShowImage = true;
-			this.bntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.bntAddImage_Click);
-			// 
-			// dlgImg
-			// 
-			this.dlgImg.FileName = "dlgImg";
+			this.bntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddImage_Click);
 			// 
 			// grpTabela
 			// 
@@ -105,7 +101,11 @@
 			this.bntAddTabela.Label = "Add Table";
 			this.bntAddTabela.Name = "bntAddTabela";
 			this.bntAddTabela.ShowImage = true;
-			this.bntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.bntAddTabela_Click);
+			this.bntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddTabela_Click);
+			// 
+			// dlgImg
+			// 
+			this.dlgImg.FileName = "dlgImg";
 			// 
 			// Ribbon1
 			// 

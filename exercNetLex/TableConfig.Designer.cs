@@ -1,6 +1,6 @@
 ﻿namespace exercNetLex
 {
-	partial class frmTableConfig
+	partial class FrmTableConfig
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,94 +28,102 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.bntAddTableOK = new System.Windows.Forms.Button();
-			this.numLinhas = new System.Windows.Forms.Label();
-			this.numColunas = new System.Windows.Forms.Label();
-			this.nudNumColunas = new System.Windows.Forms.NumericUpDown();
-			this.nudNumLinhas = new System.Windows.Forms.NumericUpDown();
-			((System.ComponentModel.ISupportInitialize)(this.nudNumColunas)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudNumLinhas)).BeginInit();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTableConfig));
+			this.BntAddTableOK = new System.Windows.Forms.Button();
+			this.NumLinhas = new System.Windows.Forms.Label();
+			this.NumColunas = new System.Windows.Forms.Label();
+			this.NudNumColunas = new System.Windows.Forms.NumericUpDown();
+			this.NudNumLinhas = new System.Windows.Forms.NumericUpDown();
+			((System.ComponentModel.ISupportInitialize)(this.NudNumColunas)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NudNumLinhas)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// bntAddTableOK
+			// BntAddTableOK
 			// 
-			this.bntAddTableOK.Location = new System.Drawing.Point(83, 92);
-			this.bntAddTableOK.Name = "bntAddTableOK";
-			this.bntAddTableOK.Size = new System.Drawing.Size(75, 23);
-			this.bntAddTableOK.TabIndex = 0;
-			this.bntAddTableOK.Text = "OK";
-			this.bntAddTableOK.UseVisualStyleBackColor = true;
-			this.bntAddTableOK.Click += new System.EventHandler(this.bntAddTableOK_Click);
+			this.BntAddTableOK.Location = new System.Drawing.Point(111, 113);
+			this.BntAddTableOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.BntAddTableOK.Name = "BntAddTableOK";
+			this.BntAddTableOK.Size = new System.Drawing.Size(100, 28);
+			this.BntAddTableOK.TabIndex = 0;
+			this.BntAddTableOK.Text = "OK";
+			this.BntAddTableOK.UseVisualStyleBackColor = true;
+			this.BntAddTableOK.Click += new System.EventHandler(this.BntAddTableOK_Click);
 			// 
-			// numLinhas
+			// NumLinhas
 			// 
-			this.numLinhas.AutoSize = true;
-			this.numLinhas.Location = new System.Drawing.Point(9, 56);
-			this.numLinhas.Name = "numLinhas";
-			this.numLinhas.Size = new System.Drawing.Size(96, 13);
-			this.numLinhas.TabIndex = 1;
-			this.numLinhas.Text = "Número de Linhas:";
+			this.NumLinhas.AutoSize = true;
+			this.NumLinhas.Location = new System.Drawing.Point(12, 69);
+			this.NumLinhas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.NumLinhas.Name = "NumLinhas";
+			this.NumLinhas.Size = new System.Drawing.Size(128, 17);
+			this.NumLinhas.TabIndex = 1;
+			this.NumLinhas.Text = "Número de Linhas:";
 			// 
-			// numColunas
+			// NumColunas
 			// 
-			this.numColunas.AutoSize = true;
-			this.numColunas.Location = new System.Drawing.Point(9, 24);
-			this.numColunas.Name = "numColunas";
-			this.numColunas.Size = new System.Drawing.Size(103, 13);
-			this.numColunas.TabIndex = 2;
-			this.numColunas.Text = "Número de Colunas:";
+			this.NumColunas.AutoSize = true;
+			this.NumColunas.Location = new System.Drawing.Point(12, 30);
+			this.NumColunas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.NumColunas.Name = "NumColunas";
+			this.NumColunas.Size = new System.Drawing.Size(137, 17);
+			this.NumColunas.TabIndex = 2;
+			this.NumColunas.Text = "Número de Colunas:";
 			// 
-			// nudNumColunas
+			// NudNumColunas
 			// 
-			this.nudNumColunas.Location = new System.Drawing.Point(118, 17);
-			this.nudNumColunas.Maximum = new decimal(new int[] {
+			this.NudNumColunas.Location = new System.Drawing.Point(157, 21);
+			this.NudNumColunas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.NudNumColunas.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-			this.nudNumColunas.Name = "nudNumColunas";
-			this.nudNumColunas.Size = new System.Drawing.Size(40, 20);
-			this.nudNumColunas.TabIndex = 5;
-			this.nudNumColunas.Value = new decimal(new int[] {
+			this.NudNumColunas.Name = "NudNumColunas";
+			this.NudNumColunas.Size = new System.Drawing.Size(53, 22);
+			this.NudNumColunas.TabIndex = 5;
+			this.NudNumColunas.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
 			// 
-			// nudNumLinhas
+			// NudNumLinhas
 			// 
-			this.nudNumLinhas.Location = new System.Drawing.Point(118, 49);
-			this.nudNumLinhas.Maximum = new decimal(new int[] {
+			this.NudNumLinhas.Location = new System.Drawing.Point(157, 60);
+			this.NudNumLinhas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.NudNumLinhas.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-			this.nudNumLinhas.Name = "nudNumLinhas";
-			this.nudNumLinhas.Size = new System.Drawing.Size(40, 20);
-			this.nudNumLinhas.TabIndex = 6;
-			this.nudNumLinhas.Value = new decimal(new int[] {
+			this.NudNumLinhas.Name = "NudNumLinhas";
+			this.NudNumLinhas.Size = new System.Drawing.Size(53, 22);
+			this.NudNumLinhas.TabIndex = 6;
+			this.NudNumLinhas.Value = new decimal(new int[] {
             3,
             0,
             0,
             0});
 			// 
-			// frmTableConfig
+			// FrmTableConfig
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(232, 127);
-			this.Controls.Add(this.nudNumLinhas);
-			this.Controls.Add(this.nudNumColunas);
-			this.Controls.Add(this.numColunas);
-			this.Controls.Add(this.numLinhas);
-			this.Controls.Add(this.bntAddTableOK);
+			this.ClientSize = new System.Drawing.Size(309, 156);
+			this.Controls.Add(this.NudNumLinhas);
+			this.Controls.Add(this.NudNumColunas);
+			this.Controls.Add(this.NumColunas);
+			this.Controls.Add(this.NumLinhas);
+			this.Controls.Add(this.BntAddTableOK);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "frmTableConfig";
+			this.Name = "FrmTableConfig";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Inserir Tabela";
-			((System.ComponentModel.ISupportInitialize)(this.nudNumColunas)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudNumLinhas)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NudNumColunas)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NudNumLinhas)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -123,10 +131,10 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button bntAddTableOK;
-		private System.Windows.Forms.Label numLinhas;
-		private System.Windows.Forms.Label numColunas;
-		public System.Windows.Forms.NumericUpDown nudNumColunas;
-		public System.Windows.Forms.NumericUpDown nudNumLinhas;
+		private System.Windows.Forms.Button BntAddTableOK;
+		private System.Windows.Forms.Label NumLinhas;
+		private System.Windows.Forms.Label NumColunas;
+		public System.Windows.Forms.NumericUpDown NudNumColunas;
+		public System.Windows.Forms.NumericUpDown NudNumLinhas;
 	}
 }

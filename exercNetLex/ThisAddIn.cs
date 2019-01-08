@@ -28,38 +28,22 @@ namespace exercNetLex
 			Word.Range rng = document.Range(ref start, ref end);
 
 
-			// Insert a title for the table and paragraph marks. 
-			//rng.InsertBefore("Document Statistics");
+			// Configura o local onde será inserido a tabela
 			rng.Font.Name = "Calibri";
 			rng.Font.Size = 11;
 			rng.InsertParagraphAfter();
-			rng.InsertParagraphAfter();
 			rng.SetRange(rng.End, rng.End);
 
-			// Add the table.
-			rng.Tables.Add(document.Paragraphs[2].Range, numLinhas, numColunas);
+			// Add a tabela
+			rng.Tables.Add(document.Paragraphs[1].Range, numLinhas, numColunas);
 
 
-			// Format the table and apply a style. 
+			// Formata e coloca borda na tabela 
 			Word.Table tbl = document.Tables[1];
-			tbl.Range.Font.Size = 12;
+			tbl.Range.Font.Size = 11;
+			tbl.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+			tbl.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
 			tbl.Columns.DistributeWidth();
-
-			object styleName = "Table Professional";
-			tbl.set_Style(ref styleName);
-
-			// Insert document properties into cells. 
-			tbl.Cell(1, 1).Range.Text = "Document Property";
-			tbl.Cell(1, 2).Range.Text = "Value";
-
-			tbl.Cell(2, 1).Range.Text = "Subject";
-			tbl.Cell(2, 2).Range.Text = ((Office.DocumentProperties)(document.BuiltInDocumentProperties))
-				[Word.WdBuiltInProperty.wdPropertySubject].Value.ToString();
-
-			tbl.Cell(3, 1).Range.Text = "Author";
-			tbl.Cell(3, 2).Range.Text = ((Office.DocumentProperties)(document.BuiltInDocumentProperties))
-				[Word.WdBuiltInProperty.wdPropertyAuthor].Value.ToString();
-
 		}
 
 		#region Código gerado por VSTO
