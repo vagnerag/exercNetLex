@@ -37,16 +37,19 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
 			this.tab1 = this.Factory.CreateRibbonTab();
 			this.grpPDF = this.Factory.CreateRibbonGroup();
-			this.btnSavePDF = this.Factory.CreateRibbonButton();
 			this.grpImg = this.Factory.CreateRibbonGroup();
-			this.bntAddImage = this.Factory.CreateRibbonButton();
 			this.grpTabela = this.Factory.CreateRibbonGroup();
-			this.bntAddTabela = this.Factory.CreateRibbonButton();
 			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
+			this.grpLetras = this.Factory.CreateRibbonGroup();
+			this.BtnSavePDF = this.Factory.CreateRibbonButton();
+			this.BntAddImage = this.Factory.CreateRibbonButton();
+			this.BntAddTabela = this.Factory.CreateRibbonButton();
+			this.BntInvertCase = this.Factory.CreateRibbonButton();
 			this.tab1.SuspendLayout();
 			this.grpPDF.SuspendLayout();
 			this.grpImg.SuspendLayout();
 			this.grpTabela.SuspendLayout();
+			this.grpLetras.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab1
@@ -55,57 +58,74 @@
 			this.tab1.Groups.Add(this.grpPDF);
 			this.tab1.Groups.Add(this.grpImg);
 			this.tab1.Groups.Add(this.grpTabela);
+			this.tab1.Groups.Add(this.grpLetras);
 			this.tab1.Label = "ExercNetLex";
 			this.tab1.Name = "tab1";
 			// 
 			// grpPDF
 			// 
-			this.grpPDF.Items.Add(this.btnSavePDF);
+			this.grpPDF.Items.Add(this.BtnSavePDF);
 			this.grpPDF.Label = "PDF";
 			this.grpPDF.Name = "grpPDF";
 			// 
-			// btnSavePDF
-			// 
-			this.btnSavePDF.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-			this.btnSavePDF.Image = ((System.Drawing.Image)(resources.GetObject("btnSavePDF.Image")));
-			this.btnSavePDF.Label = "Salvar em PDF";
-			this.btnSavePDF.Name = "btnSavePDF";
-			this.btnSavePDF.ShowImage = true;
-			this.btnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BtnSavePDF_Click);
-			// 
 			// grpImg
 			// 
-			this.grpImg.Items.Add(this.bntAddImage);
+			this.grpImg.Items.Add(this.BntAddImage);
 			this.grpImg.Label = "Imagens";
 			this.grpImg.Name = "grpImg";
 			// 
-			// bntAddImage
-			// 
-			this.bntAddImage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-			this.bntAddImage.Image = ((System.Drawing.Image)(resources.GetObject("bntAddImage.Image")));
-			this.bntAddImage.Label = "Add Image";
-			this.bntAddImage.Name = "bntAddImage";
-			this.bntAddImage.ShowImage = true;
-			this.bntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddImage_Click);
-			// 
 			// grpTabela
 			// 
-			this.grpTabela.Items.Add(this.bntAddTabela);
+			this.grpTabela.Items.Add(this.BntAddTabela);
 			this.grpTabela.Label = "Tabelas";
 			this.grpTabela.Name = "grpTabela";
-			// 
-			// bntAddTabela
-			// 
-			this.bntAddTabela.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-			this.bntAddTabela.Image = ((System.Drawing.Image)(resources.GetObject("bntAddTabela.Image")));
-			this.bntAddTabela.Label = "Add Table";
-			this.bntAddTabela.Name = "bntAddTabela";
-			this.bntAddTabela.ShowImage = true;
-			this.bntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddTabela_Click);
 			// 
 			// dlgImg
 			// 
 			this.dlgImg.FileName = "dlgImg";
+			// 
+			// grpLetras
+			// 
+			this.grpLetras.Items.Add(this.BntInvertCase);
+			this.grpLetras.Label = "Letras";
+			this.grpLetras.Name = "grpLetras";
+			// 
+			// BtnSavePDF
+			// 
+			this.BtnSavePDF.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BtnSavePDF.Image = ((System.Drawing.Image)(resources.GetObject("BtnSavePDF.Image")));
+			this.BtnSavePDF.Label = "Salvar em PDF";
+			this.BtnSavePDF.Name = "BtnSavePDF";
+			this.BtnSavePDF.ShowImage = true;
+			this.BtnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BtnSavePDF_Click);
+			// 
+			// BntAddImage
+			// 
+			this.BntAddImage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntAddImage.Image = ((System.Drawing.Image)(resources.GetObject("BntAddImage.Image")));
+			this.BntAddImage.Label = "Add Image";
+			this.BntAddImage.Name = "BntAddImage";
+			this.BntAddImage.ShowImage = true;
+			this.BntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddImage_Click);
+			// 
+			// BntAddTabela
+			// 
+			this.BntAddTabela.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntAddTabela.Image = ((System.Drawing.Image)(resources.GetObject("BntAddTabela.Image")));
+			this.BntAddTabela.Label = "Add Table";
+			this.BntAddTabela.Name = "BntAddTabela";
+			this.BntAddTabela.ShowImage = true;
+			this.BntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddTabela_Click);
+			// 
+			// BntInvertCase
+			// 
+			this.BntInvertCase.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntInvertCase.Enabled = false;
+			this.BntInvertCase.Image = ((System.Drawing.Image)(resources.GetObject("BntInvertCase.Image")));
+			this.BntInvertCase.Label = "Invert Case";
+			this.BntInvertCase.Name = "BntInvertCase";
+			this.BntInvertCase.ShowImage = true;
+			this.BntInvertCase.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntInvertCase_Click);
 			// 
 			// Ribbon1
 			// 
@@ -121,6 +141,8 @@
 			this.grpImg.PerformLayout();
 			this.grpTabela.ResumeLayout(false);
 			this.grpTabela.PerformLayout();
+			this.grpLetras.ResumeLayout(false);
+			this.grpLetras.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -129,12 +151,14 @@
 
 		internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpPDF;
-		internal Microsoft.Office.Tools.Ribbon.RibbonButton btnSavePDF;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BtnSavePDF;
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpImg;
-		internal Microsoft.Office.Tools.Ribbon.RibbonButton bntAddImage;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntAddImage;
 		private System.Windows.Forms.OpenFileDialog dlgImg;
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpTabela;
-		internal Microsoft.Office.Tools.Ribbon.RibbonButton bntAddTabela;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntAddTabela;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpLetras;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntInvertCase;
 	}
 
 	partial class ThisRibbonCollection

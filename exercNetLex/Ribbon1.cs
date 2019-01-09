@@ -14,7 +14,7 @@ namespace exercNetLex
 	{
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
-
+			HabilitarBntInvertCase();
 		}
 
 		private void BtnSavePDF_Click(object sender, RibbonControlEventArgs e)
@@ -25,7 +25,7 @@ namespace exercNetLex
 			string enderecoDoc = doc.Path;
 
 			//Cria uma string para armazenar o endereço onde o arquivo PDF será salvo e chama a função para converter
-			string enderecoPDF = enderecoDoc + "\\" + nomeDocument+ ".pdf";
+			string enderecoPDF = enderecoDoc + "\\" + nomeDocument + ".pdf";
 			doc.ExportAsFixedFormat(enderecoPDF, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
 		}
 
@@ -49,6 +49,25 @@ namespace exercNetLex
 			//Mostra a tela de configuração da tabela
 			FrmTableConfig ftc = new FrmTableConfig();
 			ftc.Show();
+		}
+
+		private void HabilitarBntInvertCase()
+		{
+			Word.Selection sl = Globals.ThisAddIn.Application.Selection;
+			Word.Range rg = sl.Range;
+			//rg.InsertAfter(""+rg.End);
+			//rg.InsertBefore(""+rg.Start);
+			//if (rg.Start <= rg.End)
+			//{
+				this.BntInvertCase.Enabled = true;
+			//}
+			//else this.BntInvertCase.Enabled = false;
+		}
+
+		private void BntInvertCase_Click(object sender, RibbonControlEventArgs e)
+		{
+
+
 		}
 	}
 }
