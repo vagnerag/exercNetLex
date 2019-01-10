@@ -12,8 +12,12 @@ namespace exercNetLex
 {
 	public partial class Ribbon1
 	{
+		//Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+		//public string Selecao = Globals.ThisAddIn.Application.Selection.Text;
+
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
+
 			HabilitarBntInvertCase();
 		}
 
@@ -26,6 +30,7 @@ namespace exercNetLex
 
 			//Cria uma string para armazenar o endereço onde o arquivo PDF será salvo e chama a função para converter
 			string enderecoPDF = enderecoDoc + "\\" + nomeDocument + ".pdf";
+			doc.Save();
 			doc.ExportAsFixedFormat(enderecoPDF, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
 		}
 
@@ -53,21 +58,42 @@ namespace exercNetLex
 
 		private void HabilitarBntInvertCase()
 		{
-			Word.Selection sl = Globals.ThisAddIn.Application.Selection;
-			Word.Range rg = sl.Range;
-			//rg.InsertAfter(""+rg.End);
-			//rg.InsertBefore(""+rg.Start);
-			//if (rg.Start <= rg.End)
-			//{
-				this.BntInvertCase.Enabled = true;
-			//}
-			//else this.BntInvertCase.Enabled = false;
+			//Word.Document doc1 = Globals.ThisAddIn.Application.ActiveDocument;
+			//Word.Selection sl = doc.Application.Selection;
+			//string selecao = sl.Text;
+
+			if (true)
+			{
+				BntInvertCase.Enabled = true;
+			}
+			else
+			{
+				BntInvertCase.Enabled = false;
+			}
 		}
 
 		private void BntInvertCase_Click(object sender, RibbonControlEventArgs e)
 		{
+			Word.Selection sl = Globals.ThisAddIn.Application.Selection;
+			string selecao = sl.Text;
+			string result = "";
+			String inverso;
 
-
+			foreach (char caracter in selecao)
+			{
+				if (caracter == caracter.ToString().ToLower()[0])
+				{
+					inverso = caracter.ToString().ToUpper();
+				}
+				else
+				{
+					inverso = caracter.ToString().ToLower();
+				}
+				result += inverso;
+				
+			}
+			sl.Delete();
+			sl.InsertAfter(result);
 		}
 	}
 }
