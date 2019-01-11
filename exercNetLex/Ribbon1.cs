@@ -8,30 +8,23 @@ using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
 
+
 namespace exercNetLex
 {
 	public partial class Ribbon1
 	{
-		//Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
-		//public string Selecao = Globals.ThisAddIn.Application.Selection.Text;
+		RibbonPresenter Rp;
 
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
-
+			//Globals.ThisAddIn.Application.DocumentChange += Change;
 			HabilitarBntInvertCase();
 		}
 
 		private void BtnSavePDF_Click(object sender, RibbonControlEventArgs e)
 		{
-			//Extrai as informções do documento ativo
-			Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
-			string nomeDocument = doc.Name;
-			string enderecoDoc = doc.Path;
-
-			//Cria uma string para armazenar o endereço onde o arquivo PDF será salvo e chama a função para converter
-			string enderecoPDF = enderecoDoc + "\\" + nomeDocument + ".pdf";
-			doc.Save();
-			doc.ExportAsFixedFormat(enderecoPDF, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
+			Rp = new RibbonPresenter();
+			Rp.SavePDF();
 		}
 
 		private void BntAddImage_Click(object sender, RibbonControlEventArgs e)
@@ -45,8 +38,8 @@ namespace exercNetLex
 			dlgImg.ShowDialog();
 			string nomeImg = dlgImg.FileName;
 
-			//Add a imagem no documento
-			Globals.ThisAddIn.Application.Selection.InlineShapes.AddPicture(nomeImg);
+			Rp = new RibbonPresenter();
+			Rp.AddImage(nomeImg);
 		}
 
 		private void BntAddTabela_Click(object sender, RibbonControlEventArgs e)
@@ -58,10 +51,6 @@ namespace exercNetLex
 
 		private void HabilitarBntInvertCase()
 		{
-			//Word.Document doc1 = Globals.ThisAddIn.Application.ActiveDocument;
-			//Word.Selection sl = doc.Application.Selection;
-			//string selecao = sl.Text;
-
 			if (true)
 			{
 				BntInvertCase.Enabled = true;
@@ -74,26 +63,8 @@ namespace exercNetLex
 
 		private void BntInvertCase_Click(object sender, RibbonControlEventArgs e)
 		{
-			Word.Selection sl = Globals.ThisAddIn.Application.Selection;
-			string selecao = sl.Text;
-			string result = "";
-			String inverso;
-
-			foreach (char caracter in selecao)
-			{
-				if (caracter == caracter.ToString().ToLower()[0])
-				{
-					inverso = caracter.ToString().ToUpper();
-				}
-				else
-				{
-					inverso = caracter.ToString().ToLower();
-				}
-				result += inverso;
-				
-			}
-			sl.Delete();
-			sl.InsertAfter(result);
+			Rp = new RibbonPresenter();
+			Rp.InvertCase();
 		}
 	}
 }

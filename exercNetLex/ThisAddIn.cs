@@ -22,32 +22,6 @@ namespace exercNetLex
 		{
 		}
 
-		public static void CriarTabela(int numLinhas, int numColunas)
-		{
-			object start = 0, end = 0;
-			Word.Document document = Globals.ThisAddIn.Application.ActiveDocument;
-			Word.Range rng = document.Range(ref start, ref end);
-
-
-			// Configura o local onde será inserido a tabela
-			rng.Font.Name = "Calibri";
-			rng.Font.Size = 11;
-			rng.InsertParagraphAfter();
-			rng.InsertParagraphAfter();
-			rng.SetRange(rng.End, rng.End);
-
-			// Add a tabela
-			rng.Tables.Add(document.Paragraphs[rng.Start].Range, numLinhas, numColunas);
-			rng.SetRange(numLinhas+1, numLinhas + 1);
-
-			// Formata e coloca borda na tabela 
-			Word.Table tbl = document.Tables[1];
-			tbl.Range.Font.Size = 11;
-			tbl.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
-			tbl.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
-			tbl.Columns.DistributeWidth();
-		}
-
 		#region Código gerado por VSTO
 
 		/// <summary>

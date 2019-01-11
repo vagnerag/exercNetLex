@@ -12,6 +12,8 @@ namespace exercNetLex
 {
 	public partial class FrmTableConfig : Form
 	{
+		RibbonPresenter Rp;
+
 		public FrmTableConfig()
 		{
 			InitializeComponent();
@@ -19,6 +21,8 @@ namespace exercNetLex
 
 		private void BntAddTableOK_Click(object sender, EventArgs e)
 		{
+			Rp = new RibbonPresenter();
+
 			//Seta as variáveis INT com os valores inseridos na tela de configuração da tabela
 			int numLinhas = (int)NudNumLinhas.Value;
 			int numColunas = (int)NudNumColunas.Value;
@@ -27,7 +31,7 @@ namespace exercNetLex
 			ActiveForm.Close();
 
 			//Chama a função de criar tabela passando os valores extraidos
-			ThisAddIn.CriarTabela(numLinhas, numColunas);
+			Rp.CriarTabela(numLinhas, numColunas);
 			
 		}
 	}

@@ -189,6 +189,7 @@
     <Compile Include="Ribbon1.Designer.cs">
       <DependentUpon>Ribbon1.cs</DependentUpon>
     </Compile>
+    <Compile Include="RibbonPresenter.cs" />
     <Compile Include="TableConfig.cs">
       <SubType>Form</SubType>
     </Compile>
