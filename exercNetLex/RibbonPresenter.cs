@@ -13,7 +13,7 @@ namespace exercNetLex
 	public class RibbonPresenter
 	{
 		private Word.Document Doc = Globals.ThisAddIn.Application.ActiveDocument;
-		private Word.Selection Sel = Globals.ThisAddIn.Application.Selection;
+		public Word.Selection Sel = Globals.ThisAddIn.Application.Selection;
 
 		public void SavePDF()
 		{

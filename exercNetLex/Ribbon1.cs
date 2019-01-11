@@ -17,8 +17,31 @@ namespace exercNetLex
 
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
-			//Globals.ThisAddIn.Application.DocumentChange += Change;
-			HabilitarBntInvertCase();
+			Globals.ThisAddIn.Application.DocumentChange += Application_DocumentChange;
+		}
+
+		private void Application_DocumentChange()
+		{
+			if (Globals.ThisAddIn.Application.Documents.Count != 0)
+			{
+				var vstoDoc = Globals.Factory.GetVstoObject(Globals.ThisAddIn.Application.ActiveDocument);
+				vstoDoc.SelectionChange += VstoDoc_SelectionChange;
+			}
+		}
+
+		private void VstoDoc_SelectionChange(object sender, SelectionEventArgs e)
+		{
+			Rp = new RibbonPresenter();
+
+			Rp.Sel = Globals.ThisAddIn.Application.Selection;
+			if (Rp.Sel.Range.Text != null && Rp.Sel.Range.Text != "")
+			{
+				BntInvertCase.Enabled = true;
+			}
+			else
+			{
+				BntInvertCase.Enabled = false;
+			}
 		}
 
 		private void BtnSavePDF_Click(object sender, RibbonControlEventArgs e)
@@ -47,18 +70,6 @@ namespace exercNetLex
 			//Mostra a tela de configuração da tabela
 			FrmTableConfig ftc = new FrmTableConfig();
 			ftc.Show();
-		}
-
-		private void HabilitarBntInvertCase()
-		{
-			if (true)
-			{
-				BntInvertCase.Enabled = true;
-			}
-			else
-			{
-				BntInvertCase.Enabled = false;
-			}
 		}
 
 		private void BntInvertCase_Click(object sender, RibbonControlEventArgs e)
