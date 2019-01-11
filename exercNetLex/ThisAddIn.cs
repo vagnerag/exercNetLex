@@ -14,12 +14,22 @@ namespace exercNetLex
 {
 	public partial class ThisAddIn
 	{
+		private UCFindAndReplace Fr;
+		private static Microsoft.Office.Tools.CustomTaskPane myCustomTaskPane;
+
 		private void ThisAddIn_Startup(object sender, System.EventArgs e)
 		{
+			Fr = new UCFindAndReplace();
+			myCustomTaskPane = this.CustomTaskPanes.Add(Fr, "Find And Replace");
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
 		{
+		}
+
+		public static void IniciarFindAndReplace()
+		{
+			myCustomTaskPane.Visible = !myCustomTaskPane.Visible;
 		}
 
 		#region Código gerado por VSTO

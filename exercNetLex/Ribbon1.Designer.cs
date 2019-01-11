@@ -37,19 +37,22 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
 			this.tab1 = this.Factory.CreateRibbonTab();
 			this.grpPDF = this.Factory.CreateRibbonGroup();
-			this.grpImg = this.Factory.CreateRibbonGroup();
-			this.grpTabela = this.Factory.CreateRibbonGroup();
-			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
-			this.grpLetras = this.Factory.CreateRibbonGroup();
 			this.BtnSavePDF = this.Factory.CreateRibbonButton();
+			this.grpImg = this.Factory.CreateRibbonGroup();
 			this.BntAddImage = this.Factory.CreateRibbonButton();
+			this.grpTabela = this.Factory.CreateRibbonGroup();
 			this.BntAddTabela = this.Factory.CreateRibbonButton();
+			this.grpLetras = this.Factory.CreateRibbonGroup();
 			this.BntInvertCase = this.Factory.CreateRibbonButton();
+			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
+			this.grpFindAndReplace = this.Factory.CreateRibbonGroup();
+			this.BntFindAndReplace = this.Factory.CreateRibbonButton();
 			this.tab1.SuspendLayout();
 			this.grpPDF.SuspendLayout();
 			this.grpImg.SuspendLayout();
 			this.grpTabela.SuspendLayout();
 			this.grpLetras.SuspendLayout();
+			this.grpFindAndReplace.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab1
@@ -59,6 +62,7 @@
 			this.tab1.Groups.Add(this.grpImg);
 			this.tab1.Groups.Add(this.grpTabela);
 			this.tab1.Groups.Add(this.grpLetras);
+			this.tab1.Groups.Add(this.grpFindAndReplace);
 			this.tab1.Label = "ExercNetLex";
 			this.tab1.Name = "tab1";
 			// 
@@ -67,28 +71,6 @@
 			this.grpPDF.Items.Add(this.BtnSavePDF);
 			this.grpPDF.Label = "PDF";
 			this.grpPDF.Name = "grpPDF";
-			// 
-			// grpImg
-			// 
-			this.grpImg.Items.Add(this.BntAddImage);
-			this.grpImg.Label = "Imagens";
-			this.grpImg.Name = "grpImg";
-			// 
-			// grpTabela
-			// 
-			this.grpTabela.Items.Add(this.BntAddTabela);
-			this.grpTabela.Label = "Tabelas";
-			this.grpTabela.Name = "grpTabela";
-			// 
-			// dlgImg
-			// 
-			this.dlgImg.FileName = "dlgImg";
-			// 
-			// grpLetras
-			// 
-			this.grpLetras.Items.Add(this.BntInvertCase);
-			this.grpLetras.Label = "Letras";
-			this.grpLetras.Name = "grpLetras";
 			// 
 			// BtnSavePDF
 			// 
@@ -99,6 +81,12 @@
 			this.BtnSavePDF.ShowImage = true;
 			this.BtnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BtnSavePDF_Click);
 			// 
+			// grpImg
+			// 
+			this.grpImg.Items.Add(this.BntAddImage);
+			this.grpImg.Label = "Imagens";
+			this.grpImg.Name = "grpImg";
+			// 
 			// BntAddImage
 			// 
 			this.BntAddImage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -107,6 +95,12 @@
 			this.BntAddImage.Name = "BntAddImage";
 			this.BntAddImage.ShowImage = true;
 			this.BntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddImage_Click);
+			// 
+			// grpTabela
+			// 
+			this.grpTabela.Items.Add(this.BntAddTabela);
+			this.grpTabela.Label = "Tabelas";
+			this.grpTabela.Name = "grpTabela";
 			// 
 			// BntAddTabela
 			// 
@@ -117,6 +111,12 @@
 			this.BntAddTabela.ShowImage = true;
 			this.BntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddTabela_Click);
 			// 
+			// grpLetras
+			// 
+			this.grpLetras.Items.Add(this.BntInvertCase);
+			this.grpLetras.Label = "Letras";
+			this.grpLetras.Name = "grpLetras";
+			// 
 			// BntInvertCase
 			// 
 			this.BntInvertCase.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -126,6 +126,24 @@
 			this.BntInvertCase.Name = "BntInvertCase";
 			this.BntInvertCase.ShowImage = true;
 			this.BntInvertCase.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntInvertCase_Click);
+			// 
+			// dlgImg
+			// 
+			this.dlgImg.FileName = "dlgImg";
+			// 
+			// grpFindAndReplace
+			// 
+			this.grpFindAndReplace.Items.Add(this.BntFindAndReplace);
+			this.grpFindAndReplace.Label = "Localizar e Substituir";
+			this.grpFindAndReplace.Name = "grpFindAndReplace";
+			// 
+			// BntFindAndReplace
+			// 
+			this.BntFindAndReplace.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntFindAndReplace.Label = "Find and Replace";
+			this.BntFindAndReplace.Name = "BntFindAndReplace";
+			this.BntFindAndReplace.ShowImage = true;
+			this.BntFindAndReplace.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntFindAndReplace_Click);
 			// 
 			// Ribbon1
 			// 
@@ -143,6 +161,8 @@
 			this.grpTabela.PerformLayout();
 			this.grpLetras.ResumeLayout(false);
 			this.grpLetras.PerformLayout();
+			this.grpFindAndReplace.ResumeLayout(false);
+			this.grpFindAndReplace.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -159,6 +179,8 @@
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntAddTabela;
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpLetras;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntInvertCase;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpFindAndReplace;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntFindAndReplace;
 	}
 
 	partial class ThisRibbonCollection

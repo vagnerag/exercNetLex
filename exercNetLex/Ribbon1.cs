@@ -7,6 +7,7 @@ using Microsoft.Office.Tools.Ribbon;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
+using System.Windows.Forms;
 
 
 namespace exercNetLex
@@ -14,7 +15,7 @@ namespace exercNetLex
 	public partial class Ribbon1
 	{
 		RibbonPresenter Rp;
-
+		
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
 			Globals.ThisAddIn.Application.DocumentChange += Application_DocumentChange;
@@ -76,6 +77,11 @@ namespace exercNetLex
 		{
 			Rp = new RibbonPresenter();
 			Rp.InvertCase();
+		}
+
+		private void BntFindAndReplace_Click(object sender, RibbonControlEventArgs e)
+		{
+			ThisAddIn.IniciarFindAndReplace();
 		}
 	}
 }
