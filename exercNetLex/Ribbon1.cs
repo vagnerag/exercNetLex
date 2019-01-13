@@ -1,20 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Office.Tools.Ribbon;
-using Word = Microsoft.Office.Interop.Word;
-using Office = Microsoft.Office.Core;
+﻿using Microsoft.Office.Tools.Ribbon;
 using Microsoft.Office.Tools.Word;
-using System.Windows.Forms;
 
 
 namespace exercNetLex
 {
 	public partial class Ribbon1
 	{
-		RibbonPresenter Rp;
+		RibbonPresenter RibbonPresenter;
 		
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
@@ -32,10 +24,10 @@ namespace exercNetLex
 
 		private void VstoDoc_SelectionChange(object sender, SelectionEventArgs e)
 		{
-			Rp = new RibbonPresenter();
+			RibbonPresenter = new RibbonPresenter();
 
-			Rp.Sel = Globals.ThisAddIn.Application.Selection;
-			if (Rp.Sel.Range.Text != null && Rp.Sel.Range.Text != "")
+			RibbonPresenter.Selecao = Globals.ThisAddIn.Application.Selection;
+			if (RibbonPresenter.Selecao.Range.Text != null && RibbonPresenter.Selecao.Range.Text != "")
 			{
 				BntInvertCase.Enabled = true;
 			}
@@ -47,8 +39,8 @@ namespace exercNetLex
 
 		private void BtnSavePDF_Click(object sender, RibbonControlEventArgs e)
 		{
-			Rp = new RibbonPresenter();
-			Rp.SavePDF();
+			RibbonPresenter = new RibbonPresenter();
+			RibbonPresenter.SavePDF();
 		}
 
 		private void BntAddImage_Click(object sender, RibbonControlEventArgs e)
@@ -62,21 +54,21 @@ namespace exercNetLex
 			dlgImg.ShowDialog();
 			string nomeImg = dlgImg.FileName;
 
-			Rp = new RibbonPresenter();
-			Rp.AddImage(nomeImg);
+			RibbonPresenter = new RibbonPresenter();
+			RibbonPresenter.AddImage(nomeImg);
 		}
 
 		private void BntAddTabela_Click(object sender, RibbonControlEventArgs e)
 		{
 			//Mostra a tela de configuração da tabela
-			FrmTableConfig ftc = new FrmTableConfig();
-			ftc.Show();
+			FrmTableConfig FormTable = new FrmTableConfig();
+			FormTable.Show();
 		}
 
 		private void BntInvertCase_Click(object sender, RibbonControlEventArgs e)
 		{
-			Rp = new RibbonPresenter();
-			Rp.InvertCase();
+			RibbonPresenter = new RibbonPresenter();
+			RibbonPresenter.InvertCase();
 		}
 
 		private void BntFindAndReplace_Click(object sender, RibbonControlEventArgs e)

@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using System.Windows.Forms;
-using Microsoft.Office.Tools.Ribbon;
-using Word = Microsoft.Office.Interop.Word;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Word;
-
-
-namespace exercNetLex
+﻿namespace exercNetLex
 {
 	public partial class ThisAddIn
 	{
-		private UCFindAndReplace Fr;
-		private static Microsoft.Office.Tools.CustomTaskPane myCustomTaskPane;
+		private FindPanel FindPanel;
+		private static Microsoft.Office.Tools.CustomTaskPane CustomTaskPane;
 
 		private void ThisAddIn_Startup(object sender, System.EventArgs e)
 		{
-			Fr = new UCFindAndReplace();
-			myCustomTaskPane = this.CustomTaskPanes.Add(Fr, "Find And Replace");
+			FindPanel = new FindPanel();
+			CustomTaskPane = this.CustomTaskPanes.Add(FindPanel, "Revisão");
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -29,7 +17,7 @@ namespace exercNetLex
 
 		public static void IniciarFindAndReplace()
 		{
-			myCustomTaskPane.Visible = !myCustomTaskPane.Visible;
+			CustomTaskPane.Visible = !CustomTaskPane.Visible;
 		}
 
 		#region Código gerado por VSTO

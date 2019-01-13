@@ -156,14 +156,15 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="FindPanelPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UCFindAndReplace.cs">
+    <Compile Include="FindPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCFindAndReplace.Designer.cs">
-      <DependentUpon>UCFindAndReplace.cs</DependentUpon>
+    <Compile Include="FindPanel.Designer.cs">
+      <DependentUpon>FindPanel.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,8 +181,8 @@
     <EmbeddedResource Include="TableConfig.resx">
       <DependentUpon>TableConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCFindAndReplace.resx">
-      <DependentUpon>UCFindAndReplace.cs</DependentUpon>
+    <EmbeddedResource Include="FindPanel.resx">
+      <DependentUpon>FindPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="exercNetLex_1_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -228,7 +229,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>DFAB839E263FC934225F58AC23D2A0E8B20C8C3E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1986AC4A146C61B04BCA5B33166D54415191A123</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

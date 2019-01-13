@@ -37,15 +37,15 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
 			this.tab1 = this.Factory.CreateRibbonTab();
 			this.grpPDF = this.Factory.CreateRibbonGroup();
-			this.BtnSavePDF = this.Factory.CreateRibbonButton();
 			this.grpImg = this.Factory.CreateRibbonGroup();
-			this.BntAddImage = this.Factory.CreateRibbonButton();
 			this.grpTabela = this.Factory.CreateRibbonGroup();
-			this.BntAddTabela = this.Factory.CreateRibbonButton();
 			this.grpLetras = this.Factory.CreateRibbonGroup();
-			this.BntInvertCase = this.Factory.CreateRibbonButton();
-			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
 			this.grpFindAndReplace = this.Factory.CreateRibbonGroup();
+			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
+			this.BtnSavePDF = this.Factory.CreateRibbonButton();
+			this.BntAddImage = this.Factory.CreateRibbonButton();
+			this.BntAddTabela = this.Factory.CreateRibbonButton();
+			this.BntInvertCase = this.Factory.CreateRibbonButton();
 			this.BntFindAndReplace = this.Factory.CreateRibbonButton();
 			this.tab1.SuspendLayout();
 			this.grpPDF.SuspendLayout();
@@ -72,6 +72,34 @@
 			this.grpPDF.Label = "PDF";
 			this.grpPDF.Name = "grpPDF";
 			// 
+			// grpImg
+			// 
+			this.grpImg.Items.Add(this.BntAddImage);
+			this.grpImg.Label = "Imagens";
+			this.grpImg.Name = "grpImg";
+			// 
+			// grpTabela
+			// 
+			this.grpTabela.Items.Add(this.BntAddTabela);
+			this.grpTabela.Label = "Tabelas";
+			this.grpTabela.Name = "grpTabela";
+			// 
+			// grpLetras
+			// 
+			this.grpLetras.Items.Add(this.BntInvertCase);
+			this.grpLetras.Label = "Letras";
+			this.grpLetras.Name = "grpLetras";
+			// 
+			// grpFindAndReplace
+			// 
+			this.grpFindAndReplace.Items.Add(this.BntFindAndReplace);
+			this.grpFindAndReplace.Label = "Revisão";
+			this.grpFindAndReplace.Name = "grpFindAndReplace";
+			// 
+			// dlgImg
+			// 
+			this.dlgImg.FileName = "dlgImg";
+			// 
 			// BtnSavePDF
 			// 
 			this.BtnSavePDF.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -80,12 +108,6 @@
 			this.BtnSavePDF.Name = "BtnSavePDF";
 			this.BtnSavePDF.ShowImage = true;
 			this.BtnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BtnSavePDF_Click);
-			// 
-			// grpImg
-			// 
-			this.grpImg.Items.Add(this.BntAddImage);
-			this.grpImg.Label = "Imagens";
-			this.grpImg.Name = "grpImg";
 			// 
 			// BntAddImage
 			// 
@@ -96,12 +118,6 @@
 			this.BntAddImage.ShowImage = true;
 			this.BntAddImage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddImage_Click);
 			// 
-			// grpTabela
-			// 
-			this.grpTabela.Items.Add(this.BntAddTabela);
-			this.grpTabela.Label = "Tabelas";
-			this.grpTabela.Name = "grpTabela";
-			// 
 			// BntAddTabela
 			// 
 			this.BntAddTabela.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -110,12 +126,6 @@
 			this.BntAddTabela.Name = "BntAddTabela";
 			this.BntAddTabela.ShowImage = true;
 			this.BntAddTabela.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddTabela_Click);
-			// 
-			// grpLetras
-			// 
-			this.grpLetras.Items.Add(this.BntInvertCase);
-			this.grpLetras.Label = "Letras";
-			this.grpLetras.Name = "grpLetras";
 			// 
 			// BntInvertCase
 			// 
@@ -127,19 +137,9 @@
 			this.BntInvertCase.ShowImage = true;
 			this.BntInvertCase.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntInvertCase_Click);
 			// 
-			// dlgImg
-			// 
-			this.dlgImg.FileName = "dlgImg";
-			// 
-			// grpFindAndReplace
-			// 
-			this.grpFindAndReplace.Items.Add(this.BntFindAndReplace);
-			this.grpFindAndReplace.Label = "Localizar e Substituir";
-			this.grpFindAndReplace.Name = "grpFindAndReplace";
-			// 
 			// BntFindAndReplace
 			// 
-			this.BntFindAndReplace.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntFindAndReplace.Image = ((System.Drawing.Image)(resources.GetObject("BntFindAndReplace.Image")));
 			this.BntFindAndReplace.Label = "Find and Replace";
 			this.BntFindAndReplace.Name = "BntFindAndReplace";
 			this.BntFindAndReplace.ShowImage = true;
