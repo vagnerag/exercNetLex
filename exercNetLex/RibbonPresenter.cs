@@ -61,8 +61,10 @@ namespace exercNetLex
 			string result = "";
 			char inverso;
 
+			//Percorre cada caracte da string que recebeu a selecao
 			foreach (char caracter in selecao)
 			{
+				//testa se o caracter é letra. Se for testa e inverte, senao add ao resultado
 				if (Char.IsLetter(caracter))
 				{
 					if (Char.IsLower(caracter))
@@ -80,12 +82,14 @@ namespace exercNetLex
 					result += caracter;
 				}
 			}
+			//deleta a selecao e insere o resultado no lugar
 			Selecao.Delete();
 			Selecao.InsertAfter(result);
 		}
 
 		public void AddSpan(string condicao)
 		{
+			//add o span na selecao
 			Range.InsertBefore("[");
 			Range.InsertAfter("]");
 			Range.Select();
@@ -100,6 +104,7 @@ namespace exercNetLex
 
 		public void AddField(string fieldName)
 		{
+			//add o field entre "{}"
 			Range.InsertBefore("{" + fieldName + "}");
 			Range.Select();
 			Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
@@ -108,10 +113,11 @@ namespace exercNetLex
 
 		public void AddQualificacao(string nomeContatoPJ, string nomeContatoRep)
 		{
+			//variaveis para marcar inicio e final da qualificacao e do repetir do representate (para adicionar a condicao)
 			int inicioQualificacao, finalQualificacao, incioRepetirRep, finalRepetirRep;
 
 			inicioQualificacao = Range.Start;
-
+			// Bloco de codigo para inserir a parte PJ
 			Range.InsertBefore(string.Format("{{{0}.RazaoSocial Formatar \"caixaalta\"}}", nomeContatoPJ));
 			Range.Font.Bold = 1;
 			Range.Start = Range.End + 1;
@@ -135,6 +141,7 @@ namespace exercNetLex
 
 			incioRepetirRep = Range.Start;
 
+			// Bloco de codigo para inserir a parte Representante (PF)
 			Range.InsertBefore(string.Format("{{{0}.Nome formatar \"caixaalta\"}}", nomeContatoRep));
 			Range.Font.Bold = 1;
 			Range.Start = Range.End + 1;
@@ -147,9 +154,9 @@ namespace exercNetLex
 			AddCondicao(nomeContatoRep, "IdentidadeTipo", "!=", "Passaporte", "a");
 			Range.InsertAfter(string.Format(" {{{0}.IdentidadeTipo}}, n. {{{0}.IdentidadeNumero}} – " +
 				"{{{0}.IdentidadeOrgaoEmissor Formatar \"caixaalta\"}}, inscrit", nomeContatoRep));
-			AddDeclinaGeneroPJ(nomeContatoRep);
+			AddDeclinaGeneroRep(nomeContatoRep);
 			Range.InsertAfter(string.Format(" no CPF sob o n. {{{0}.CPF}}, residente e domiciliad", nomeContatoRep));
-			AddDeclinaGeneroPJ(nomeContatoRep);
+			AddDeclinaGeneroRep(nomeContatoRep);
 			Range.InsertAfter(string.Format(" na {{{0}.Logradouro}}, {{{0}.LogradouroNumeroComp}}", nomeContatoRep));
 			AddCondicao(nomeContatoRep, "LogradouroNumeroComp", "!=", "n.", " ");
 			Range.InsertAfter(string.Format("{{{0}.LogradouroNumero}}, ", nomeContatoRep));
@@ -172,9 +179,11 @@ namespace exercNetLex
 			Range.SetRange(inicioQualificacao, finalQualificacao);
 			Range.Select();
 			Range.Application.Selection.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
 			//Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 		}
 
+		//Metodo generico para adicionar condicao
 		public void AddCondicao(string contato, string atributo, string operacao, string comparacao, string resultado)
 		{
 			Word.Range RangeCondicao = Range;
@@ -203,6 +212,7 @@ namespace exercNetLex
 			Range.SetRange(RangeCondicao.End, RangeCondicao.End);
 		}
 
+		//Metodo generico para adicionar repetir
 		public void AddRepetir(string numContato)
 		{
 			Word.Range RangeRepetir = Range;
@@ -220,15 +230,18 @@ namespace exercNetLex
 			RangeRepetir.Application.Selection.Font.Subscript = -1;
 		}
 
+		//Metodo para inserir declinacao de genero (masculino e feminino) da parte PJ
 		public void AddDeclinaGeneroPJ(string nomeContatoPJ)
 		{
 			AddCondicao(nomeContatoPJ, "Genero", "=", "masculino", "o");
 			AddCondicao(nomeContatoPJ, "Genero", "=", "feminino", "a");
 		}
-		public void AddDeclinaGeneroRep(string nomeContatoPJ)
+
+		//Metodo para inserir declinacao de genero (masculino e feminino) da parte PF
+		public void AddDeclinaGeneroRep(string nomeContatoRep)
 		{
-			AddCondicao(nomeContatoPJ, "Sexo", "=", "masculino", "o");
-			AddCondicao(nomeContatoPJ, "Sexo", "=", "feminino", "a");
+			AddCondicao(nomeContatoRep, "Sexo", "=", "masculino", "o");
+			AddCondicao(nomeContatoRep, "Sexo", "=", "feminino", "a");
 		}
 	}
 }

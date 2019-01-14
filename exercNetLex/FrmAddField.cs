@@ -27,6 +27,7 @@ namespace exercNetLex
 		private void BntAddFieldOk_Click(object sender, EventArgs e)
 		{
 			RibbonPresenter = new RibbonPresenter();
+			// Testa se o campo foi preenchido
 			if (TxtAddField.Text != null && TxtAddField.Text != "")
 			{
 				RibbonPresenter.AddField(TxtAddField.Text);

@@ -40,8 +40,8 @@
 			// 
 			// TxFind
 			// 
-			this.TxFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxFind.Location = new System.Drawing.Point(16, 29);
+			this.TxFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxFind.Location = new System.Drawing.Point(14, 30);
 			this.TxFind.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.TxFind.Name = "TxFind";
 			this.TxFind.Size = new System.Drawing.Size(206, 24);
@@ -51,11 +51,12 @@
 			// LbFind
 			// 
 			this.LbFind.AutoSize = true;
+			this.LbFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LbFind.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.LbFind.Location = new System.Drawing.Point(15, 54);
+			this.LbFind.Location = new System.Drawing.Point(15, 60);
 			this.LbFind.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.LbFind.Name = "LbFind";
-			this.LbFind.Size = new System.Drawing.Size(60, 15);
+			this.LbFind.Size = new System.Drawing.Size(68, 17);
 			this.LbFind.TabIndex = 1;
 			this.LbFind.Text = "Find what";
 			// 
@@ -63,8 +64,9 @@
 			// 
 			this.BntFindNext.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.BntFindNext.Enabled = false;
+			this.BntFindNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BntFindNext.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.BntFindNext.Location = new System.Drawing.Point(16, 177);
+			this.BntFindNext.Location = new System.Drawing.Point(18, 205);
 			this.BntFindNext.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.BntFindNext.Name = "BntFindNext";
 			this.BntFindNext.Size = new System.Drawing.Size(92, 26);
@@ -78,17 +80,17 @@
 			// 
 			this.checkFind.AutoSize = true;
 			this.checkFind.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.checkFind.Location = new System.Drawing.Point(16, 140);
+			this.checkFind.Location = new System.Drawing.Point(16, 160);
 			this.checkFind.Name = "checkFind";
-			this.checkFind.Size = new System.Drawing.Size(107, 19);
+			this.checkFind.Size = new System.Drawing.Size(129, 22);
 			this.checkFind.TabIndex = 3;
 			this.checkFind.Text = "Case-Sensitive";
 			this.checkFind.UseVisualStyleBackColor = true;
 			// 
 			// TxReplace
 			// 
-			this.TxReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TxReplace.Location = new System.Drawing.Point(18, 79);
+			this.TxReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TxReplace.Location = new System.Drawing.Point(14, 91);
 			this.TxReplace.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.TxReplace.Name = "TxReplace";
 			this.TxReplace.Size = new System.Drawing.Size(204, 24);
@@ -98,11 +100,12 @@
 			// LbReplace
 			// 
 			this.LbReplace.AutoSize = true;
+			this.LbReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LbReplace.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.LbReplace.Location = new System.Drawing.Point(15, 104);
+			this.LbReplace.Location = new System.Drawing.Point(15, 121);
 			this.LbReplace.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.LbReplace.Name = "LbReplace";
-			this.LbReplace.Size = new System.Drawing.Size(70, 15);
+			this.LbReplace.Size = new System.Drawing.Size(81, 17);
 			this.LbReplace.TabIndex = 5;
 			this.LbReplace.Text = "Replace for";
 			// 
@@ -110,8 +113,9 @@
 			// 
 			this.BntReplaceNext.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.BntReplaceNext.Enabled = false;
+			this.BntReplaceNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BntReplaceNext.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.BntReplaceNext.Location = new System.Drawing.Point(130, 177);
+			this.BntReplaceNext.Location = new System.Drawing.Point(126, 205);
 			this.BntReplaceNext.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.BntReplaceNext.Name = "BntReplaceNext";
 			this.BntReplaceNext.Size = new System.Drawing.Size(92, 26);
@@ -124,8 +128,9 @@
 			// 
 			this.BntReplaceAll.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.BntReplaceAll.Enabled = false;
+			this.BntReplaceAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BntReplaceAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.BntReplaceAll.Location = new System.Drawing.Point(72, 229);
+			this.BntReplaceAll.Location = new System.Drawing.Point(72, 247);
 			this.BntReplaceAll.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.BntReplaceAll.Name = "BntReplaceAll";
 			this.BntReplaceAll.Size = new System.Drawing.Size(92, 26);
@@ -136,7 +141,7 @@
 			// 
 			// FindPanel
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GrayText;
 			this.Controls.Add(this.BntReplaceAll);

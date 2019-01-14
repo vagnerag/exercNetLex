@@ -27,6 +27,7 @@ namespace exercNetLex
 		private void BntAddSpanOk_Click(object sender, EventArgs e)
 		{
 			RibbonPresenter = new RibbonPresenter();
+			// Testa se o campo foi preenchido
 			if (TxtAddSpan.Text != null && TxtAddSpan.Text != "")
 			{
 				RibbonPresenter.AddSpan(TxtAddSpan.Text);
