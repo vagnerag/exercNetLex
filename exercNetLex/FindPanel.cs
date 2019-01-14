@@ -16,7 +16,21 @@ namespace exercNetLex
 		{
 			FindPanelPresent = new FindPanelPresenter();
 
-			FindPanelPresent.FindNext(TxFind.Text);
+			FindPanelPresent.FindNext(TxFind.Text, checkFind.Checked);
+		}
+
+		private void BntReplaceNext_Click(object sender, EventArgs e)
+		{
+			FindPanelPresent = new FindPanelPresenter();
+
+			FindPanelPresent.ReplaceNext(TxFind.Text, TxReplace.Text, checkFind.Checked);
+		}
+
+		private void BntReplaceAll_Click(object sender, EventArgs e)
+		{
+			FindPanelPresent = new FindPanelPresenter();
+
+			FindPanelPresent.ReplaceAll(TxFind.Text, TxReplace.Text, checkFind.Checked);
 		}
 
 		private void TxFind_TextChanged(object sender, EventArgs e)
@@ -28,6 +42,20 @@ namespace exercNetLex
 			else
 			{
 				BntFindNext.Enabled = false;
+			}
+		}
+
+		private void TxReplace_TextChanged(object sender, EventArgs e)
+		{
+			if (TxReplace.Text.Length > 0)
+			{
+				BntReplaceNext.Enabled = true;
+				BntReplaceAll.Enabled = true;
+			}
+			else
+			{
+				BntReplaceNext.Enabled = false;
+				BntReplaceAll.Enabled = false;
 			}
 		}
 	}

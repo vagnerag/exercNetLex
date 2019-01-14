@@ -9,6 +9,8 @@
 		{
 			FindPanel = new FindPanel();
 			CustomTaskPane = this.CustomTaskPanes.Add(FindPanel, "Revisão");
+			CustomTaskPane.Width = 255;
+			
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
