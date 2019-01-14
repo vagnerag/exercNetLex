@@ -7,7 +7,7 @@ namespace exercNetLex
 	{
 		public Word.Document Documento = Globals.ThisAddIn.Application.ActiveDocument;
 		public Word.Selection Selecao = Globals.ThisAddIn.Application.Selection;
-		
+		public Word.Range Range = Globals.ThisAddIn.Application.Selection.Range;
 
 		public void SavePDF()
 		{
@@ -78,5 +78,26 @@ namespace exercNetLex
 			Selecao.InsertAfter(result);
 		}
 
+		public void AddSpan(string condicao)
+		{
+			Range.InsertBefore("[");
+			Range.InsertAfter("]");
+			Range.Select();
+			Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
+			Range.Start = Range.Start + 1;
+			Range.Select();
+			Range.InsertBefore(condicao);
+			Range.End = Range.Start + condicao.Length;
+			Range.Select();
+			Range.Application.Selection.Font.Subscript = -1;
+		}
+
+		public void AddField(string fieldName)
+		{
+			Range.InsertBefore("{" + fieldName + "}");
+			Range.Select();
+			Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
+			
+		}
 	}
 }

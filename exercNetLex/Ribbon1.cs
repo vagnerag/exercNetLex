@@ -30,10 +30,12 @@ namespace exercNetLex
 			if (RibbonPresenter.Selecao.Range.Text != null && RibbonPresenter.Selecao.Range.Text != "")
 			{
 				BntInvertCase.Enabled = true;
+				BntAddSpan.Enabled = true;
 			}
 			else
 			{
 				BntInvertCase.Enabled = false;
+				BntAddSpan.Enabled = false;
 			}
 		}
 
@@ -74,6 +76,18 @@ namespace exercNetLex
 		private void BntFindAndReplace_Click(object sender, RibbonControlEventArgs e)
 		{
 			ThisAddIn.IniciarFindAndReplace();
+		}
+
+		private void BntAddSpan_Click(object sender, RibbonControlEventArgs e)
+		{
+			RibbonPresenter = new RibbonPresenter();
+			RibbonPresenter.AddSpan("teste");
+		}
+
+		private void BntAddField_Click(object sender, RibbonControlEventArgs e)
+		{
+			RibbonPresenter = new RibbonPresenter();
+			RibbonPresenter.AddField("teste");
 		}
 	}
 }

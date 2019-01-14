@@ -40,19 +40,26 @@
 			this.grpImg = this.Factory.CreateRibbonGroup();
 			this.grpTabela = this.Factory.CreateRibbonGroup();
 			this.grpLetras = this.Factory.CreateRibbonGroup();
-			this.grpFindAndReplace = this.Factory.CreateRibbonGroup();
+			this.grpRevisao = this.Factory.CreateRibbonGroup();
+			this.grpFieldSpan = this.Factory.CreateRibbonGroup();
 			this.dlgImg = new System.Windows.Forms.OpenFileDialog();
 			this.BtnSavePDF = this.Factory.CreateRibbonButton();
 			this.BntAddImage = this.Factory.CreateRibbonButton();
 			this.BntAddTabela = this.Factory.CreateRibbonButton();
 			this.BntInvertCase = this.Factory.CreateRibbonButton();
 			this.BntFindAndReplace = this.Factory.CreateRibbonButton();
+			this.BntAddField = this.Factory.CreateRibbonButton();
+			this.BntAddSpan = this.Factory.CreateRibbonButton();
+			this.grpQualificacao = this.Factory.CreateRibbonGroup();
+			this.BntQualificacao = this.Factory.CreateRibbonButton();
 			this.tab1.SuspendLayout();
 			this.grpPDF.SuspendLayout();
 			this.grpImg.SuspendLayout();
 			this.grpTabela.SuspendLayout();
 			this.grpLetras.SuspendLayout();
-			this.grpFindAndReplace.SuspendLayout();
+			this.grpRevisao.SuspendLayout();
+			this.grpFieldSpan.SuspendLayout();
+			this.grpQualificacao.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tab1
@@ -62,7 +69,9 @@
 			this.tab1.Groups.Add(this.grpImg);
 			this.tab1.Groups.Add(this.grpTabela);
 			this.tab1.Groups.Add(this.grpLetras);
-			this.tab1.Groups.Add(this.grpFindAndReplace);
+			this.tab1.Groups.Add(this.grpRevisao);
+			this.tab1.Groups.Add(this.grpFieldSpan);
+			this.tab1.Groups.Add(this.grpQualificacao);
 			this.tab1.Label = "ExercNetLex";
 			this.tab1.Name = "tab1";
 			// 
@@ -90,11 +99,18 @@
 			this.grpLetras.Label = "Letras";
 			this.grpLetras.Name = "grpLetras";
 			// 
-			// grpFindAndReplace
+			// grpRevisao
 			// 
-			this.grpFindAndReplace.Items.Add(this.BntFindAndReplace);
-			this.grpFindAndReplace.Label = "Revisão";
-			this.grpFindAndReplace.Name = "grpFindAndReplace";
+			this.grpRevisao.Items.Add(this.BntFindAndReplace);
+			this.grpRevisao.Label = "Revisão";
+			this.grpRevisao.Name = "grpRevisao";
+			// 
+			// grpFieldSpan
+			// 
+			this.grpFieldSpan.Items.Add(this.BntAddField);
+			this.grpFieldSpan.Items.Add(this.BntAddSpan);
+			this.grpFieldSpan.Label = "Condição";
+			this.grpFieldSpan.Name = "grpFieldSpan";
 			// 
 			// dlgImg
 			// 
@@ -104,7 +120,7 @@
 			// 
 			this.BtnSavePDF.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
 			this.BtnSavePDF.Image = ((System.Drawing.Image)(resources.GetObject("BtnSavePDF.Image")));
-			this.BtnSavePDF.Label = "Salvar em PDF";
+			this.BtnSavePDF.Label = "Save As PDF";
 			this.BtnSavePDF.Name = "BtnSavePDF";
 			this.BtnSavePDF.ShowImage = true;
 			this.BtnSavePDF.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BtnSavePDF_Click);
@@ -139,11 +155,45 @@
 			// 
 			// BntFindAndReplace
 			// 
+			this.BntFindAndReplace.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
 			this.BntFindAndReplace.Image = ((System.Drawing.Image)(resources.GetObject("BntFindAndReplace.Image")));
 			this.BntFindAndReplace.Label = "Find and Replace";
 			this.BntFindAndReplace.Name = "BntFindAndReplace";
 			this.BntFindAndReplace.ShowImage = true;
 			this.BntFindAndReplace.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntFindAndReplace_Click);
+			// 
+			// BntAddField
+			// 
+			this.BntAddField.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntAddField.Image = ((System.Drawing.Image)(resources.GetObject("BntAddField.Image")));
+			this.BntAddField.Label = "Add Field";
+			this.BntAddField.Name = "BntAddField";
+			this.BntAddField.ShowImage = true;
+			this.BntAddField.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddField_Click);
+			// 
+			// BntAddSpan
+			// 
+			this.BntAddSpan.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntAddSpan.Enabled = false;
+			this.BntAddSpan.Image = ((System.Drawing.Image)(resources.GetObject("BntAddSpan.Image")));
+			this.BntAddSpan.Label = "Add Span";
+			this.BntAddSpan.Name = "BntAddSpan";
+			this.BntAddSpan.ShowImage = true;
+			this.BntAddSpan.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.BntAddSpan_Click);
+			// 
+			// grpQualificacao
+			// 
+			this.grpQualificacao.Items.Add(this.BntQualificacao);
+			this.grpQualificacao.Label = "Qualificação";
+			this.grpQualificacao.Name = "grpQualificacao";
+			// 
+			// BntQualificacao
+			// 
+			this.BntQualificacao.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+			this.BntQualificacao.Image = ((System.Drawing.Image)(resources.GetObject("BntQualificacao.Image")));
+			this.BntQualificacao.Label = "Qualificação PJ";
+			this.BntQualificacao.Name = "BntQualificacao";
+			this.BntQualificacao.ShowImage = true;
 			// 
 			// Ribbon1
 			// 
@@ -161,8 +211,12 @@
 			this.grpTabela.PerformLayout();
 			this.grpLetras.ResumeLayout(false);
 			this.grpLetras.PerformLayout();
-			this.grpFindAndReplace.ResumeLayout(false);
-			this.grpFindAndReplace.PerformLayout();
+			this.grpRevisao.ResumeLayout(false);
+			this.grpRevisao.PerformLayout();
+			this.grpFieldSpan.ResumeLayout(false);
+			this.grpFieldSpan.PerformLayout();
+			this.grpQualificacao.ResumeLayout(false);
+			this.grpQualificacao.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -179,8 +233,13 @@
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntAddTabela;
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpLetras;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntInvertCase;
-		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpFindAndReplace;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpRevisao;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntFindAndReplace;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpFieldSpan;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntAddField;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntAddSpan;
+		internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpQualificacao;
+		internal Microsoft.Office.Tools.Ribbon.RibbonButton BntQualificacao;
 	}
 
 	partial class ThisRibbonCollection
