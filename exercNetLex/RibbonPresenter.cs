@@ -179,7 +179,7 @@ namespace exercNetLex
 			Range.SetRange(inicioQualificacao, finalQualificacao);
 			Range.Select();
 			Range.Application.Selection.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
-
+						
 			//Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 		}
 
