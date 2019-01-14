@@ -21,7 +21,7 @@ namespace exercNetLex
 
 		private void BntAddFieldCancel_Click(object sender, EventArgs e)
 		{
-			ActiveForm.Close();
+			this.Close();
 		}
 
 		private void BntAddFieldOk_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace exercNetLex
 			if (TxtAddField.Text != null && TxtAddField.Text != "")
 			{
 				RibbonPresenter.AddField(TxtAddField.Text);
-				ActiveForm.Close();
+				this.Close();
 			}
 			else
 			{

@@ -59,20 +59,26 @@ namespace exercNetLex
 		{
 			string selecao = Selecao.Text;
 			string result = "";
-			String inverso;
+			char inverso;
 
 			foreach (char caracter in selecao)
 			{
-				if (caracter == caracter.ToString().ToLower()[0])
+				if (Char.IsLetter(caracter))
 				{
-					inverso = caracter.ToString().ToUpper();
+					if (Char.IsLower(caracter))
+					{
+						inverso = Char.ToUpper(caracter);
+					}
+					else
+					{
+						inverso = Char.ToLower(caracter);
+					}
+					result += inverso;
 				}
 				else
 				{
-					inverso = caracter.ToString().ToLower();
+					result += caracter;
 				}
-				result += inverso;
-
 			}
 			Selecao.Delete();
 			Selecao.InsertAfter(result);
@@ -97,7 +103,132 @@ namespace exercNetLex
 			Range.InsertBefore("{" + fieldName + "}");
 			Range.Select();
 			Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
-			
+
+		}
+
+		public void AddQualificacao(string nomeContatoPJ, string nomeContatoRep)
+		{
+			int inicioQualificacao, finalQualificacao, incioRepetirRep, finalRepetirRep;
+
+			inicioQualificacao = Range.Start;
+
+			Range.InsertBefore(string.Format("{{{0}.RazaoSocial Formatar \"caixaalta\"}}", nomeContatoPJ));
+			Range.Font.Bold = 1;
+			Range.Start = Range.End + 1;
+			Range.InsertAfter(string.Format(", {{{0}.Tipo}}, inscrit", nomeContatoPJ));
+			Range.Font.Bold = 0;
+			Range.SetRange(Range.End, Range.End);
+			AddDeclinaGeneroPJ(nomeContatoPJ);
+			Range.InsertAfter(string.Format(" no CNPJ sob o n. {{{0}.CNPJ}}, sediad", nomeContatoPJ));
+			AddDeclinaGeneroPJ(nomeContatoPJ);
+			Range.InsertAfter(string.Format(" na {{{0}.Logradouro}}, {{{0}.LogradouroNumeroComp}}", nomeContatoPJ));
+			AddCondicao(nomeContatoPJ, "LogradouroNumeroComp", "!=", "n.", " ");
+			Range.InsertAfter(string.Format("{{{0}.LogradouroNumero}}, ", nomeContatoPJ));
+			AddCondicao(nomeContatoPJ, "LogradouroComplemento", "!=", "", string.Format("{{{0}.LogradouroComplemento}}, ", nomeContatoPJ));
+			Range.InsertAfter(string.Format("bairro {{{0}.Bairro}}, {{{0}.Municipio}}/{{{0}.Estado}}, {{{0}.Pais}}, ", nomeContatoPJ));
+			AddCondicao(nomeContatoPJ, "Pais", "=", "Brasil", "CEP");
+			AddCondicao(nomeContatoPJ, "Pais", "!=", "Brasil", "Código Postal");
+			Range.InsertAfter(string.Format(": {{{0}.CEP}}, neste ato representad", nomeContatoPJ));
+			AddDeclinaGeneroPJ(nomeContatoPJ);
+			Range.InsertAfter(" por ");
+			Range.SetRange(Range.End, Range.End);
+
+			incioRepetirRep = Range.Start;
+
+			Range.InsertBefore(string.Format("{{{0}.Nome formatar \"caixaalta\"}}", nomeContatoRep));
+			Range.Font.Bold = 1;
+			Range.Start = Range.End + 1;
+			Range.InsertAfter(string.Format(", {{{0}.Nacionalidade}}, {{{0}.EstadoCivil}}, {{{0}.Profissao}}, portador", nomeContatoRep));
+			Range.Font.Bold = 0;
+			Range.SetRange(Range.End, Range.End);
+			AddCondicao(nomeContatoRep, "Sexo", "=", "feminino", "a");
+			Range.InsertAfter(" d");
+			AddCondicao(nomeContatoRep, "IdentidadeTipo", "=", "Passaporte", "o");
+			AddCondicao(nomeContatoRep, "IdentidadeTipo", "!=", "Passaporte", "a");
+			Range.InsertAfter(string.Format(" {{{0}.IdentidadeTipo}}, n. {{{0}.IdentidadeNumero}} – " +
+				"{{{0}.IdentidadeOrgaoEmissor Formatar \"caixaalta\"}}, inscrit", nomeContatoRep));
+			AddDeclinaGeneroPJ(nomeContatoRep);
+			Range.InsertAfter(string.Format(" no CPF sob o n. {{{0}.CPF}}, residente e domiciliad", nomeContatoRep));
+			AddDeclinaGeneroPJ(nomeContatoRep);
+			Range.InsertAfter(string.Format(" na {{{0}.Logradouro}}, {{{0}.LogradouroNumeroComp}}", nomeContatoRep));
+			AddCondicao(nomeContatoRep, "LogradouroNumeroComp", "!=", "n.", " ");
+			Range.InsertAfter(string.Format("{{{0}.LogradouroNumero}}, ", nomeContatoRep));
+			AddCondicao(nomeContatoRep, "LogradouroComplemento", "!=", "", string.Format("{{{0}.LogradouroComplemento}}, ", nomeContatoRep));
+			Range.InsertAfter(string.Format("bairro {{{0}.Bairro}}, {{{0}.Municipio}}/{{{0}.Estado}}, {{{0}.Pais}}, ", nomeContatoRep));
+			AddCondicao(nomeContatoRep, "Pais", "=", "Brasil", "CEP");
+			AddCondicao(nomeContatoRep, "Pais", "!=", "Brasil", "Código Postal");
+			Range.InsertAfter(string.Format(": {{{0}.CEP}}", nomeContatoRep));
+			Range.SetRange(Range.End, Range.End);
+			Range.Select();
+
+			finalRepetirRep = Range.End;
+
+			Range.SetRange(incioRepetirRep, finalRepetirRep);
+			// Add o "[repetir numRep pontuacao "; | e |."" no inicio da qualificação de representantes e o "{sinal}]" ao final"
+			AddRepetir("numRep");
+
+			// 9 somado ao final corresponde aos simbolos "{sinal}]"
+			finalQualificacao = finalRepetirRep + Range.Text.Length + 9;
+			Range.SetRange(inicioQualificacao, finalQualificacao);
+			Range.Select();
+			Range.Application.Selection.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+			//Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
+		}
+
+		public void AddCondicao(string contato, string atributo, string operacao, string comparacao, string resultado)
+		{
+			Word.Range RangeCondicao = Range;
+			RangeCondicao.SetRange(Range.End, Range.End);
+
+			string condicao = string.Format("{0}.{1} {2} \"{3}\"{4}", contato, atributo, operacao, comparacao, resultado);
+
+			RangeCondicao.Select();
+			RangeCondicao.Application.Selection.Font.Subscript = 0;
+			RangeCondicao.InsertAfter("[");
+			RangeCondicao.Start = RangeCondicao.Start + 1;
+			RangeCondicao.Select();
+			RangeCondicao.InsertAfter(condicao);
+			RangeCondicao.End = Range.Start + condicao.Length;
+			RangeCondicao.Select();
+			RangeCondicao.Application.Selection.Font.Subscript = -1;
+			RangeCondicao.SetRange(RangeCondicao.End - resultado.Length, RangeCondicao.End);
+			RangeCondicao.Select();
+			RangeCondicao.Application.Selection.Font.Subscript = 0;
+			RangeCondicao.InsertAfter("]");
+			RangeCondicao.Select();
+			RangeCondicao.Application.Selection.Font.Subscript = 0;
+			RangeCondicao.SetRange(RangeCondicao.End, RangeCondicao.End);
+			RangeCondicao.Select();
+
+			Range.SetRange(RangeCondicao.End, RangeCondicao.End);
+		}
+
+		public void AddRepetir(string numContato)
+		{
+			Word.Range RangeRepetir = Range;
+
+			string repetir = string.Format("repetir 1 até {0} pontuacao \"; |; e |.\"", numContato);
+
+			RangeRepetir.InsertBefore("[");
+			RangeRepetir.InsertAfter("{sinal}]");
+			RangeRepetir.Select();
+			RangeRepetir.Start = RangeRepetir.Start + 1;
+			RangeRepetir.Select();
+			RangeRepetir.InsertBefore(repetir);
+			RangeRepetir.End = RangeRepetir.Start + repetir.Length;
+			RangeRepetir.Select();
+			RangeRepetir.Application.Selection.Font.Subscript = -1;
+		}
+
+		public void AddDeclinaGeneroPJ(string nomeContatoPJ)
+		{
+			AddCondicao(nomeContatoPJ, "Genero", "=", "masculino", "o");
+			AddCondicao(nomeContatoPJ, "Genero", "=", "feminino", "a");
+		}
+		public void AddDeclinaGeneroRep(string nomeContatoPJ)
+		{
+			AddCondicao(nomeContatoPJ, "Sexo", "=", "masculino", "o");
+			AddCondicao(nomeContatoPJ, "Sexo", "=", "feminino", "a");
 		}
 	}
 }

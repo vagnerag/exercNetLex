@@ -169,6 +169,12 @@
     <Compile Include="FrmAddSpan.Designer.cs">
       <DependentUpon>FrmAddSpan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQualificacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQualificacao.Designer.cs">
+      <DependentUpon>FrmQualificacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddSpan.resx">
       <DependentUpon>FrmAddSpan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQualificacao.resx">
+      <DependentUpon>FrmQualificacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

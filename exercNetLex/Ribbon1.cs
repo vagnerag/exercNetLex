@@ -9,6 +9,7 @@ namespace exercNetLex
 		RibbonPresenter RibbonPresenter;
 		FrmAddField FrmAddField;
 		FrmAddSpan FrmAddSpan;
+		FrmQualificacao FrmQualificacao;
 
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
@@ -91,6 +92,12 @@ namespace exercNetLex
 			FrmAddField = new FrmAddField();
 			FrmAddField.Show();
 			
+		}
+
+		private void BntQualificacao_Click(object sender, RibbonControlEventArgs e)
+		{
+			FrmQualificacao = new FrmQualificacao();
+			FrmQualificacao.Show();
 		}
 	}
 }

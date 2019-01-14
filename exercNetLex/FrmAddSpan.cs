@@ -21,7 +21,7 @@ namespace exercNetLex
 
 		private void BntAddSpanCancel_Click(object sender, EventArgs e)
 		{
-			ActiveForm.Close();
+			this.Close();
 		}
 
 		private void BntAddSpanOk_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace exercNetLex
 			if (TxtAddSpan.Text != null && TxtAddSpan.Text != "")
 			{
 				RibbonPresenter.AddSpan(TxtAddSpan.Text);
-				ActiveForm.Close();
+				this.Close();
 			}
 			else
 			{
