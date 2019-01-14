@@ -7,7 +7,9 @@ namespace exercNetLex
 	public partial class Ribbon1
 	{
 		RibbonPresenter RibbonPresenter;
-		
+		FrmAddField FrmAddField;
+		FrmAddSpan FrmAddSpan;
+
 		private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
 		{
 			Globals.ThisAddIn.Application.DocumentChange += Application_DocumentChange;
@@ -80,14 +82,15 @@ namespace exercNetLex
 
 		private void BntAddSpan_Click(object sender, RibbonControlEventArgs e)
 		{
-			RibbonPresenter = new RibbonPresenter();
-			RibbonPresenter.AddSpan("teste");
+			FrmAddSpan = new FrmAddSpan();
+			FrmAddSpan.Show();
 		}
 
 		private void BntAddField_Click(object sender, RibbonControlEventArgs e)
 		{
-			RibbonPresenter = new RibbonPresenter();
-			RibbonPresenter.AddField("teste");
+			FrmAddField = new FrmAddField();
+			FrmAddField.Show();
+			
 		}
 	}
 }

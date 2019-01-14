@@ -34,5 +34,10 @@ namespace exercNetLex
 			Rp.CriarTabela(numLinhas, numColunas);
 			
 		}
+
+		private void BntAddTableCancel_Click(object sender, EventArgs e)
+		{
+			ActiveForm.Close();
+		}
 	}
 }

@@ -34,14 +34,15 @@
 			this.NumColunas = new System.Windows.Forms.Label();
 			this.NudNumColunas = new System.Windows.Forms.NumericUpDown();
 			this.NudNumLinhas = new System.Windows.Forms.NumericUpDown();
+			this.BntAddTableCancel = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.NudNumColunas)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NudNumLinhas)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// BntAddTableOK
 			// 
-			this.BntAddTableOK.Location = new System.Drawing.Point(111, 113);
-			this.BntAddTableOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.BntAddTableOK.Location = new System.Drawing.Point(196, 115);
+			this.BntAddTableOK.Margin = new System.Windows.Forms.Padding(4);
 			this.BntAddTableOK.Name = "BntAddTableOK";
 			this.BntAddTableOK.Size = new System.Drawing.Size(100, 28);
 			this.BntAddTableOK.TabIndex = 0;
@@ -72,7 +73,7 @@
 			// NudNumColunas
 			// 
 			this.NudNumColunas.Location = new System.Drawing.Point(157, 21);
-			this.NudNumColunas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.NudNumColunas.Margin = new System.Windows.Forms.Padding(4);
 			this.NudNumColunas.Maximum = new decimal(new int[] {
             10,
             0,
@@ -90,7 +91,7 @@
 			// NudNumLinhas
 			// 
 			this.NudNumLinhas.Location = new System.Drawing.Point(157, 60);
-			this.NudNumLinhas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.NudNumLinhas.Margin = new System.Windows.Forms.Padding(4);
 			this.NudNumLinhas.Maximum = new decimal(new int[] {
             10,
             0,
@@ -105,18 +106,30 @@
             0,
             0});
 			// 
+			// BntAddTableCancel
+			// 
+			this.BntAddTableCancel.Location = new System.Drawing.Point(15, 115);
+			this.BntAddTableCancel.Margin = new System.Windows.Forms.Padding(4);
+			this.BntAddTableCancel.Name = "BntAddTableCancel";
+			this.BntAddTableCancel.Size = new System.Drawing.Size(100, 28);
+			this.BntAddTableCancel.TabIndex = 7;
+			this.BntAddTableCancel.Text = "Cancelar";
+			this.BntAddTableCancel.UseVisualStyleBackColor = true;
+			this.BntAddTableCancel.Click += new System.EventHandler(this.BntAddTableCancel_Click);
+			// 
 			// FrmTableConfig
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(309, 156);
+			this.Controls.Add(this.BntAddTableCancel);
 			this.Controls.Add(this.NudNumLinhas);
 			this.Controls.Add(this.NudNumColunas);
 			this.Controls.Add(this.NumColunas);
 			this.Controls.Add(this.NumLinhas);
 			this.Controls.Add(this.BntAddTableOK);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FrmTableConfig";
@@ -136,5 +149,6 @@
 		private System.Windows.Forms.Label NumColunas;
 		public System.Windows.Forms.NumericUpDown NudNumColunas;
 		public System.Windows.Forms.NumericUpDown NudNumLinhas;
+		private System.Windows.Forms.Button BntAddTableCancel;
 	}
 }
