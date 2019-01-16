@@ -38,10 +38,12 @@ namespace exercNetLex
 			if (TxFind.Text.Length > 0)
 			{
 				BntFindNext.Enabled = true;
+				checkFind.Enabled = true;
 			}
 			else
 			{
 				BntFindNext.Enabled = false;
+				checkFind.Enabled = false;
 			}
 		}
 
@@ -51,11 +53,13 @@ namespace exercNetLex
 			{
 				BntReplaceNext.Enabled = true;
 				BntReplaceAll.Enabled = true;
+				checkFind.Enabled = true;
 			}
 			else
 			{
 				BntReplaceNext.Enabled = false;
 				BntReplaceAll.Enabled = false;
+				checkFind.Enabled = false;
 			}
 		}
 	}

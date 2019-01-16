@@ -29,8 +29,12 @@ namespace exercNetLex
 			RibbonPresenter = new RibbonPresenter();
 			if ((TxtContatoPJ.Text != null && TxtContatoPJ.Text != "") && (TxtContatoRep.Text != null && TxtContatoRep.Text != ""))
 			{
+				if (RibbonPresenter.Selecao.Text != null && RibbonPresenter.Selecao.Text != "")
+				{
+					RibbonPresenter.Selecao.Delete();
+				}
 				RibbonPresenter.AddQualificacao(TxtContatoPJ.Text, TxtContatoRep.Text);
-				this.Close();
+					this.Close();
 			}
 			else
 			{

@@ -105,10 +105,10 @@ namespace exercNetLex
 		public void AddField(string fieldName)
 		{
 			//add o field entre "{}"
+			Range.Delete();
 			Range.InsertBefore("{" + fieldName + "}");
 			Range.Select();
 			Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
-
 		}
 
 		public void AddQualificacao(string nomeContatoPJ, string nomeContatoRep)
@@ -117,10 +117,11 @@ namespace exercNetLex
 			int inicioQualificacao, finalQualificacao, incioRepetirRep, finalRepetirRep;
 
 			inicioQualificacao = Range.Start;
+					
 			// Bloco de codigo para inserir a parte PJ
-			Range.InsertBefore(string.Format("{{{0}.RazaoSocial Formatar \"caixaalta\"}}", nomeContatoPJ));
+			Range.InsertAfter(string.Format("{{{0}.RazaoSocial Formatar \"caixaalta\"}}", nomeContatoPJ));
 			Range.Font.Bold = 1;
-			Range.Start = Range.End + 1;
+			Range.SetRange(Range.End, Range.End);
 			Range.InsertAfter(string.Format(", {{{0}.Tipo}}, inscrit", nomeContatoPJ));
 			Range.Font.Bold = 0;
 			Range.SetRange(Range.End, Range.End);
@@ -142,9 +143,9 @@ namespace exercNetLex
 			incioRepetirRep = Range.Start;
 
 			// Bloco de codigo para inserir a parte Representante (PF)
-			Range.InsertBefore(string.Format("{{{0}.Nome formatar \"caixaalta\"}}", nomeContatoRep));
+			Range.InsertAfter(string.Format("{{{0}.Nome formatar \"caixaalta\"}}", nomeContatoRep));
 			Range.Font.Bold = 1;
-			Range.Start = Range.End + 1;
+			Range.SetRange(Range.End, Range.End);
 			Range.InsertAfter(string.Format(", {{{0}.Nacionalidade}}, {{{0}.EstadoCivil}}, {{{0}.Profissao}}, portador", nomeContatoRep));
 			Range.Font.Bold = 0;
 			Range.SetRange(Range.End, Range.End);
@@ -179,7 +180,9 @@ namespace exercNetLex
 			Range.SetRange(inicioQualificacao, finalQualificacao);
 			Range.Select();
 			Range.Application.Selection.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
-						
+			Range = Documento.Range();
+			Range.SetRange(Range.End, Range.End);
+			Range.Select();
 			//Range.Application.Selection.Font.Color = Word.WdColor.wdColorRed;
 		}
 

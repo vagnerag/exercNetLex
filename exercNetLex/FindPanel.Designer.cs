@@ -79,6 +79,7 @@
 			// checkFind
 			// 
 			this.checkFind.AutoSize = true;
+			this.checkFind.Enabled = false;
 			this.checkFind.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.checkFind.Location = new System.Drawing.Point(16, 160);
 			this.checkFind.Name = "checkFind";
