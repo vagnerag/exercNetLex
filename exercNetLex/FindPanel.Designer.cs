@@ -44,7 +44,7 @@
 			this.TxFind.Location = new System.Drawing.Point(14, 30);
 			this.TxFind.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.TxFind.Name = "TxFind";
-			this.TxFind.Size = new System.Drawing.Size(206, 24);
+			this.TxFind.Size = new System.Drawing.Size(206, 21);
 			this.TxFind.TabIndex = 0;
 			this.TxFind.TextChanged += new System.EventHandler(this.TxFind_TextChanged);
 			// 
@@ -56,7 +56,7 @@
 			this.LbFind.Location = new System.Drawing.Point(15, 60);
 			this.LbFind.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.LbFind.Name = "LbFind";
-			this.LbFind.Size = new System.Drawing.Size(68, 17);
+			this.LbFind.Size = new System.Drawing.Size(53, 13);
 			this.LbFind.TabIndex = 1;
 			this.LbFind.Text = "Find what";
 			// 
@@ -83,18 +83,19 @@
 			this.checkFind.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.checkFind.Location = new System.Drawing.Point(16, 160);
 			this.checkFind.Name = "checkFind";
-			this.checkFind.Size = new System.Drawing.Size(129, 22);
+			this.checkFind.Size = new System.Drawing.Size(107, 19);
 			this.checkFind.TabIndex = 3;
 			this.checkFind.Text = "Case-Sensitive";
 			this.checkFind.UseVisualStyleBackColor = true;
 			// 
 			// TxReplace
 			// 
+			this.TxReplace.Enabled = false;
 			this.TxReplace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TxReplace.Location = new System.Drawing.Point(14, 91);
 			this.TxReplace.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
 			this.TxReplace.Name = "TxReplace";
-			this.TxReplace.Size = new System.Drawing.Size(204, 24);
+			this.TxReplace.Size = new System.Drawing.Size(204, 21);
 			this.TxReplace.TabIndex = 4;
 			this.TxReplace.TextChanged += new System.EventHandler(this.TxReplace_TextChanged);
 			// 
@@ -106,7 +107,7 @@
 			this.LbReplace.Location = new System.Drawing.Point(15, 121);
 			this.LbReplace.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.LbReplace.Name = "LbReplace";
-			this.LbReplace.Size = new System.Drawing.Size(81, 17);
+			this.LbReplace.Size = new System.Drawing.Size(62, 13);
 			this.LbReplace.TabIndex = 5;
 			this.LbReplace.Text = "Replace for";
 			// 
@@ -142,7 +143,7 @@
 			// 
 			// FindPanel
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GrayText;
 			this.Controls.Add(this.BntReplaceAll);

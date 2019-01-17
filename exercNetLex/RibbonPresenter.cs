@@ -34,35 +34,26 @@ namespace exercNetLex
 		{
 			object start = 0, end = 0;
 
-			Word.Range rng = Documento.Range(ref start, ref end);
+			//Word.Range rng = Documento.Range(ref start, ref end);
+			Word.Range rng = Documento.Application.Selection.Range;
 
 			// Configura o local onde será inserido a tabela
 			rng.Font.Name = "Calibri";
 			rng.Font.Size = 11;
 			rng.InsertParagraphAfter();
-			rng.InsertParagraphAfter();
 			rng.SetRange(rng.End, rng.End);
 
-			// Add a tabela
-			rng.Tables.Add(Documento.Paragraphs[rng.Start].Range, numLinhas, numColunas);
-			rng.SetRange(numLinhas + 1, numLinhas + 1);
-
-			// Formata e coloca borda na tabela 
-			Word.Table tbl = Documento.Tables[1];
-			tbl.Range.Font.Size = 11;
-			tbl.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
-			tbl.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
-			tbl.Columns.DistributeWidth();
+			// Add a tabela, formata e coloca bordas na tabela
+			rng.Tables.Add(Documento.Paragraphs[rng.Start].Range, numLinhas, numColunas, Word.WdLineStyle.wdLineStyleSingle);
 		}
 
 		public void InvertCase()
 		{
-			string selecao = Selecao.Text;
 			string result = "";
 			char inverso;
 
 			//Percorre cada caracte da string que recebeu a selecao
-			foreach (char caracter in selecao)
+			foreach (char caracter in Selecao.Text)
 			{
 				//testa se o caracter é letra. Se for testa e inverte, senao add ao resultado
 				if (Char.IsLetter(caracter))
@@ -79,10 +70,13 @@ namespace exercNetLex
 				}
 				else
 				{
-					result += caracter;
+					if (caracter != Char.Parse("\r"))
+					{
+						result += caracter;
+					}
 				}
 			}
-			//deleta a selecao e insere o resultado no lugar
+
 			Selecao.Delete();
 			Selecao.InsertAfter(result);
 		}
@@ -117,7 +111,7 @@ namespace exercNetLex
 			int inicioQualificacao, finalQualificacao, incioRepetirRep, finalRepetirRep;
 
 			inicioQualificacao = Range.Start;
-					
+
 			// Bloco de codigo para inserir a parte PJ
 			Range.InsertAfter(string.Format("{{{0}.RazaoSocial Formatar \"caixaalta\"}}", nomeContatoPJ));
 			Range.Font.Bold = 1;

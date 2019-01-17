@@ -37,11 +37,13 @@ namespace exercNetLex
 		{
 			if (TxFind.Text.Length > 0)
 			{
+				TxReplace.Enabled = true;
 				BntFindNext.Enabled = true;
 				checkFind.Enabled = true;
 			}
 			else
 			{
+				TxReplace.Enabled = false;
 				BntFindNext.Enabled = false;
 				checkFind.Enabled = false;
 			}
